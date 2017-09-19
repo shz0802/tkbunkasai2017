@@ -1,0 +1,12 @@
+allow from all
+
+AddType "text/html; charset=utf-8" .html
+
+<Files ~ ".(gif|jpe?g|png|ico)$">
+	Header set Cache-Control "max-age=604800 , public"
+</Files>
+
+
+RewriteEngine on
+RewriteCond %{THE_REQUEST} ^(.*)index.html
+RewriteRule ^(.*)index.html$ http://tsukukoma.bunkasai.info/ [R=301,L]

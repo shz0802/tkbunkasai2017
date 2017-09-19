@@ -1,0 +1,11 @@
+<ul class="breadcrumb">
+	<%
+	var crumbsList = [];
+	crumbsList.forEach(function(index,keys){ %>
+	<li itemscope="itemscipe" itemtype="heep://data-vocabulary.org/Breadcrumb">
+		<a href="" itemprop="url">
+			<span itemprop="title"><%=  %></span>
+		</a>
+	</li>
+	<% }); %>
+</ul>

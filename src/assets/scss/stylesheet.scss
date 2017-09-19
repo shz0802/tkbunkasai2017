@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+$breakpoints: (
+	'es': 'screen and (max-width: 599px)',
+	'sm': 'screen and (min-width: 600px) and (max-width: 959px)',
+	'md': 'screen and (min-width: 960px) and (max-width:1280px)',
+	'lg': 'screen and (min-width: 1281px)'
+) !default;
+
+@mixin mq($bp: es) {
+	$bp: map_get($breakpoints,$bp);
+	@media #{$bp}{
+		@content;
+	}
+}
+
+$baseColor: #e4007f;
+$baseWhite: lighten(#f7f6eb,2.5%);
+$baseFont_jp: "Noto Sans Japanese";
+$baseFont_en: "orator-std";
+@mixin disactivateLinkColors{
+	& a:link, a:visited, a:hover, a:active{color: $baseWhite;}
+}
+
+@import "common";
+@import "base";
+@import "top";
+@import "brunch";
+@import "blog";
+@import "loader";

@@ -1,0 +1,17 @@
+<% var pageName = "お問い合せ" %>
+<%- include("components/_header.ejs",{pageName:pageName}) %>
+<%- include("components/_menu.ejs",{pageId:""}) %>
+<main id="main" class="main-contact">
+	<h1 class="parlevel1-headline"><span><%= pageName %></span></h1>
+	<div class="parlevel1-content">
+		<h2 class="parlevel2-headline">文化祭についてのお問合せ</h2>
+		<div class="parlevel2-content">
+			<p class="parlevel2-text">　文化祭の開催内容に関しては、<a href="mailto:contact@bunkasai.info">contact@bunkasai.info</a>までご連絡ください。文化祭実行委員会の生徒が対応いたします。</p>
+		</div>
+		<h2 class="parlevel2-headline">文化祭以外の学校へのお問い合わせ</h2>
+		<div class="parlevel2-content">
+			<p class="parlevel2-text">　学校（代表電話：03-3411-8521）へ直接ご連絡ください。文化祭実行委員会宛てのご連絡には対応しかねます。</p>
+		</div>
+	</div>
+</main>
+<%- include("components/_footer.ejs") %>
