@@ -79,7 +79,6 @@ function enterPageButton(){
 	$.cookie("alreadyVisit",true);
 	$(".enter-page__button").on("touchend click", function(){
 		$("#enter-page").fadeOut(1000);
-		topBgAnimation();
 		$(document).off(scroll_event);
 		$(document).off('.noScroll');
 		$("body").removeClass("is-scrollOff");
@@ -91,6 +90,7 @@ function topAnimationSkip(){
 	$("#enter-page").removeClass("is-beforeStart");
 	$(".enter-page__whatHappens-wrap,.baseCircle,.rect,.enter-page__logo,.circle2,.tri,.hex,.rect-m,.tri-m,.enter-page__logo-wrap,.enter-page__logo-text-item,.enter-page__logo-text-item-dec,.enter-page__button,.rect1,.rect2,.rect3,.rect4,.rect5,.rect6").addClass("is-skipped-force");
 	enterPageButton();
+	topBgAnimation();
 }
 
 function topBgAnimation(){
@@ -100,13 +100,13 @@ function topBgAnimation(){
 			if(Math.random()<0.1){changes.push(i);}
 		}
 		changes.forEach(function(num){
-			var obj = $(".index-bg-"+num)
-			obj.fadeOut(750,function(){
+			var obj = $(".index-bg-"+num), duration = 500+Math.random()*(1000);
+			obj.fadeOut(duration,function(){
 				obj.attr("src","assets/img/bg-"+ (1+Math.floor(Math.random()*(40))) +".svg");
 			});
-			obj.fadeIn(750);
+			obj.fadeIn(duration);
 		})
-	},1500);
+	},1000);
 }
 
 // set loader
@@ -131,6 +131,25 @@ $(function(){
 	var ua = navigator.userAgent;
 	if(ua.match(/MSIE/) || ua.match(/Trident/)){
 		topAnimationSkip();
+	}
+
+	// ios11 bugfix ?
+	if(/iPhone/.test(ua)) {
+		ua.match(/iPhone OS (\w+){1,3}/g);
+		var osv=(RegExp.$1.replace(/_/g, '')+'00').slice(0,3);
+		if(osv >= 1100 || osv == 110) {
+			$(".rect,.tri-m").css({
+				"transform-origin": "50% 50%"
+			});
+		}
+	}else if(/iPad/.test(ua)) {
+		ua.match(/CPU OS (\w+){1,3}/g);
+		var osv=(RegExp.$1.replace(/_/g, '')+'00').slice(0,3);
+		if(osv >= 1100 || osv == 110) {
+			$(".rect,.tri-m").css({
+				"transform-origin": "50% 50%"
+			});
+		}
 	}
 
 	if(location.pathname == "/" || location.pathname == "/development/" || location.pathname == "/index.html"){ // animation only in index.html
