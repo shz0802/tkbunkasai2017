@@ -7,31 +7,9 @@ body.body-top{
     @include mq(sm){-webkit-overflow-scrolling: touch;}
     @include mq(md){
         #header{display: none;}
-        overflow-x: hidden;
-        &::-webkit-scrollbar{width: 12px;}
-        &::-webkit-scrollbar-track {background-color: $baseColor;}
-        &::-webkit-scrollbar-thumb {
-            position: absolute;
-            background-color: rgba(255,255,255,0.3);
-            border-radius: 6px;
-            box-shadow: inset 0 0 2px rgba(0,0,0,0.2);
-        }
-        &.is-scrollOff{position: fixed; width: 100%;}
-        &.is-scrollOff::-webkit-scrollbar{display: none;}
     }
     @include mq(lg){
         #header{display: none;}
-        overflow-x: hidden;
-        &::-webkit-scrollbar{width: 12px;}
-        &::-webkit-scrollbar-track {background-color: $baseColor;}
-        &::-webkit-scrollbar-thumb {
-            position: absolute;
-            background-color: rgba(255,255,255,0.3);
-            border-radius: 6px;
-            box-shadow: inset 0 0 2px rgba(0,0,0,0.2);
-        }
-        &.is-scrollOff{position: fixed; width: 100%;}
-        &.is-scrollOff::-webkit-scrollbar{display: none;}
     }
 }
 
@@ -454,7 +432,7 @@ body.body-top{
         font-size: 2.73vw;
     }
     @include mq(lg){
-        margin: 3vw auto 3vw;
+        margin: 2vw auto 3vw;
         line-height: 1;
         font-size: 3vw;
     }
@@ -499,7 +477,8 @@ body.body-top{
         width: 100vw;
         top: 0;
         left: 0;
-        padding-bottom: 3vw;
+		padding-bottom: 3vw;
+		@include mq(lg){padding-bottom: 5vw;}
         .top-content__item{position: relative;}
         .top-content__item-welcome{
             box-sizing: border-box;
@@ -680,7 +659,7 @@ body.body-top{
             margin-top: 15vw;
             margin-left: 5vw;
             padding-top: 2.5vw;
-            @include mq(sm){padding-top: 8vw;height: 30vw;}
+			@include mq(sm){padding-top: 8vw;height: 30vw;}
             .top-latest-news{
                 width: 100%;
                 padding: 0;
@@ -692,7 +671,8 @@ body.body-top{
                     padding: 1vw;
                     font-size: 2.5vw;
                     margin-left: 5vw;
-                    line-height: 3.5vw;
+					line-height: 3.5vw;
+					box-sizing: border-box;
                     border: .2px solid #000;
                     font-family: $baseFont_en;
                 }
@@ -729,9 +709,10 @@ body.body-top{
             }
             @include mq(lg){
                 width: 60vw;
-                height: 20vw;
-                margin-top: 10vw;
-                margin-left: 20vw;
+                height: 15vw;
+                margin-top: 12.5vw;
+				margin-left: 20vw;
+				box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.4), inset 0px 0px 0px 1vw #fefefe, inset 1vw 1vw 0px 2px $baseColor, inset -1vw -1vw 0px 2px $baseColor;
                 .top-latest-news{
                     width: 100%;
                     padding: 0;
@@ -739,15 +720,18 @@ body.body-top{
                 .top-latest-news__item{
                     width: 100%;
                     .top-latest-news__item-date{
-                        padding: 1vw;
+						box-sizing: border-box;
+                        padding: 1vw 2vw 1vw;
                         font-size: 1vw;
                         display: inline-block;
-                        border: .2px solid #000;
+						border: .2px solid #000;
+						line-height: 1.25vw;
+						margin-left: 4vw;
                     }
                     .top-latest-news__item-title{
-                        font-size: 2vw;
-                        display: inline-block;
-                        margin-left: 3vw;
+						margin-top: 0vw;
+                        font-size: 1.5vw;
+                        margin-left: 2vw;
                     }
 
                 }
@@ -772,7 +756,10 @@ body.body-top{
                 width: 60vw;
                 min-height: 20vw;
                 margin-top: 10vw;
-                margin-left: 20vw;
+				margin-left: 20vw;
+				padding-top: 2vw;
+				padding-bottom: calc(1vw + 5px);
+				box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.4), inset 0px 0px 0px 1vw #fefefe, inset 1vw 1vw 0px 2px $baseColor, inset -1vw -1vw 0px 2px $baseColor;
             }
             .top-grand-menu{
                 margin: 0;padding: 0;
@@ -782,12 +769,13 @@ body.body-top{
             		position: relative;
             		width: 90%;
                     margin-left: 5%;
-            		height: 25vw;
+					height: 25vw;
+					box-sizing: border-box;
             		background-color: #fefefe;
             		border-bottom: dashed .5px rgba(0,0,0,0.4);
             		@include mq(sm){height: 20vw;}
             		@include mq(md){height: 10vw;}
-            		@include mq(lg){height: 10vw;}
+            		@include mq(lg){height: 8vw;}
             		&:last-of-type{border: none;}
             		a{
             			display:block;width:100%;height:100%;
@@ -816,11 +804,11 @@ body.body-top{
                             line-height: 10vw;
             			}
             			@include mq(lg){
-                            font-size: 5vw;
-                            line-height: 10vw;
+                            font-size: 4vw;
+                            line-height: 8vw;
             			}
             		}
-            		.blog-list__item-date{
+            		.top-grand-menu__item__disc{
             			position: absolute;
             			margin: 0;
             			top: 0;
@@ -838,7 +826,7 @@ body.body-top{
             			@include mq(md){
             				padding-left: 1.5vw;
             				font-size: 1.2vw;
-            				line-height: 2.5;
+            				line-height: 2.75;
             			}
             			@include mq(lg){
                             padding-left: 1.5vw;

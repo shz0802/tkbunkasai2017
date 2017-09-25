@@ -1,4 +1,3 @@
-
 #main{
 	padding-top: 30vw;
 	@include mq(sm){padding-top: 22.5vw;}
@@ -39,19 +38,19 @@
 			@include mq{height: 9.6vw;width: 2vw;}
 			@include mq(sm){height: 6vw;width: 1.5vw;}
 			@include mq(md){height: 2.73vw;width: .5vw;}
-			@include mq(lg){height: 2.73vw;width: .5vw;}
+			@include mq(lg){height: 2.73vw;width: .5vw;top: .25vw;}
 		}
 		&::before{
 			left: -5vw;
 			@include mq(sm){left: -5vw;}
 			@include mq(md){left: -2vw;}
-			@include mq(lg){left: -1vw;}
+			@include mq(lg){left: -1.5vw;}
 		}
 		&::after{
 			right: -5vw;
 			@include mq(sm){right: -5vw;}
 			@include mq(md){right: -2vw;}
-			@include mq(lg){right: -1vw;}
+			@include mq(lg){right: -1.5vw;}
 		}
 	}
 }
@@ -139,7 +138,7 @@
 	margin: 1vh 5vw 0;
 	@include mq(sm){margin: 0 5vw 5vw;}
 	@include mq(md){margin: 1.5vw 0 0;}
-	@include mq(lg){margin: 1.5vw 0 0;}
+	@include mq(lg){margin: 1vw 0 0;}
 	ul{
 		padding: 0;
 		li{&::before{content:"・"}}
@@ -169,8 +168,8 @@
 		}
 		@include mq(lg){
 			width: 90%;
-			font-size: 1.1vw;
-			line-height: 1.5;
+			font-size: 1vw;
+			line-height: 1.25;
 			padding-left: 4.5vw;
 		}
 	}
@@ -225,7 +224,7 @@
 	}
 	@include mq(lg){
 		width: 100%;
-		margin: 1vw 6.5vw 2vw;
+		margin: .5vw 6.5vw 2vw;
 		font-size: 1vw;
 		ul{
 			font-size: 1.1vw;
@@ -245,6 +244,10 @@
 		}
 		@include mq(md){
 			font-size: 1.2vw;
+			line-height: 1.3;
+		}
+		@include mq(lg){
+			font-size: 1.1vw;
 			line-height: 1.3;
 		}
 	}

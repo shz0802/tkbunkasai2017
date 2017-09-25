@@ -45,7 +45,7 @@ $.fn.extend({
                 up(e,$(this));
                 this.touching = false;
             }
-        }).css('cursor','pointer');
+        });
     }
 });
 
@@ -255,8 +255,10 @@ $(function(){
 	}
 
 	$(".smph-header__menu-trigger, .is-current").touchInterface(function(e,$_this){
-		scrollTop = $(window).scrollTop();
-		openCheck = openSmphMenu(openCheck);
+		if($(window).width>=960){
+			scrollTop = $(window).scrollTop();
+			openCheck = openSmphMenu(openCheck);
+		}
 	});
 	$("#smph-pagecover").touchInterface(function(e,$_this){
 		if(openCheck===true){
