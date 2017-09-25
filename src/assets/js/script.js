@@ -148,7 +148,7 @@ $(function(){
 		var osv=(RegExp.$1.replace(/_/g, '')+'00').slice(0,3);
 		if(osv >= 1100 || osv == 110) {ios_bugFix();}
 	}else if(/Macintosh/.test(ua)){
-		if(us.indexOf("11.0") !== -1){ios_bugFix();}
+		if(ua.indexOf("11.0") !== -1){ios_bugFix();}
 	}
 
 	if(location.pathname == "/" || location.pathname == "/development/" || location.pathname == "/index.html"){ // animation only in index.html
