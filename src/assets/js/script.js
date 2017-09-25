@@ -134,22 +134,21 @@ $(function(){
 	}
 
 	// ios11 bugfix ?
+	function ios_bugFix(){
+		$(".rect,.tri-m").css({
+			"transform-origin": "50% 50%"
+		});
+	}
 	if(/iPhone/.test(ua)) {
 		ua.match(/iPhone OS (\w+){1,3}/g);
 		var osv=(RegExp.$1.replace(/_/g, '')+'00').slice(0,3);
-		if(osv >= 1100 || osv == 110) {
-			$(".rect,.tri-m").css({
-				"transform-origin": "50% 50%"
-			});
-		}
+		if(osv >= 1100 || osv == 110) {ios_bugFix();}
 	}else if(/iPad/.test(ua)) {
 		ua.match(/CPU OS (\w+){1,3}/g);
 		var osv=(RegExp.$1.replace(/_/g, '')+'00').slice(0,3);
-		if(osv >= 1100 || osv == 110) {
-			$(".rect,.tri-m").css({
-				"transform-origin": "50% 50%"
-			});
-		}
+		if(osv >= 1100 || osv == 110) {ios_bugFix();}
+	}else if(/Macintosh/.test(ua)){
+		if(us.indexOf("11.0") !== -1){ios_bugFix();}
 	}
 
 	if(location.pathname == "/" || location.pathname == "/development/" || location.pathname == "/index.html"){ // animation only in index.html
