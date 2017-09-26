@@ -114,6 +114,10 @@ $("#loader, #enter-page").addClass("is-beforeStart");
 $("#loader").css("display","flex")
 // onload
 $(function(){
+
+	$(document).on("scroll", "body", function(){
+		console.log("");
+	});
 	// set bg
 	for(var i=1;i<=10000;i++){
 		$(".index-bg-"+i).attr("src","assets/img/bg-"+ (1+Math.floor(Math.random()*(40))) +".svg");
