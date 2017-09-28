@@ -18,8 +18,8 @@
 	margin-left: 5vw;
 	box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.1);
 	@include mq(sm){margin-left: 10vw;width: 80vw;}
-	@include mq(md){margin-top: 5vw;width: 40vw;}
-	@include mq(lg){margin-top: 5vw;width: 35vw;}
+	@include mq(md){margin-top: 0vw;margin-left: 0;width: 40vw;}
+	@include mq(lg){margin-top: 0vw;margin-left: 0;width: 35vw;}
 	.blog-list__item{
 		cursor: pointer;
 		position: relative;
@@ -118,8 +118,4 @@
 			}
 		}
 	}
-}
-
-.blogs-category{
-	width: 30vw;
 }

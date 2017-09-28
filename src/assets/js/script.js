@@ -258,7 +258,7 @@ $(function(){
 	}
 
 	$(".smph-header__menu-trigger, .is-current").touchInterface(function(e,$_this){
-		if($(window).width>=960){
+		if($(window).width()<=960){
 			scrollTop = $(window).scrollTop();
 			openCheck = openSmphMenu(openCheck);
 		}
