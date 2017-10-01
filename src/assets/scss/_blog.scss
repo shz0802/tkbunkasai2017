@@ -119,3 +119,40 @@
 		}
 	}
 }
+
+.main-blog-content{
+	.parlevel2-headline-single{
+		margin-top: 0;
+	}
+	.parlevel2-content{
+		box-sizing: border-box;
+		padding-left: 3vw;
+		padding-right: 3vw;
+		border-left: solid 1px $baseColor;
+		border-right: solid 1px $baseColor;
+		@include mq(md){padding-left: 1.5vw;padding-right: 1.5vw;}
+		@include mq(lg){padding-left: 0;padding-right: 0;}
+		.parlevel2-text{
+			width: 100%;
+		}
+	}
+	.back-to-top-blog{
+		width: 100%;
+		text-align: center;
+		margin-left: 0;
+		font-size: 3.5vw;
+		margin-top: 10vw;
+		@include mq(sm){
+			font-size: 3vw;
+			margin-top: 8vw;
+		}
+		@include mq(md){
+			font-size: 1.5vw;
+			margin-top: 3vw;
+		}
+		@include mq(lg){
+			font-size: 1.1vw;
+			margin-top: 2vw;
+		}
+	}
+}

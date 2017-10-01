@@ -170,14 +170,14 @@
 			margin: .75vw 0 0;
 			font-size: 1.1vw;
 			line-height: 1.5;
-			padding-left: 2vw;
+			padding-left: 0 2vw 0;
 		}
 		@include mq(lg){
 			width: 90%;
 			margin: 1vw 0 0;
 			font-size: 1vw;
 			line-height: 1.25;
-			padding-left: 1.5vw;
+			padding: 0 1.5vw ;
 		}
 		.is-lightened{
 			background: linear-gradient(transparent 70%, lighten($baseColor,30%) 70%);

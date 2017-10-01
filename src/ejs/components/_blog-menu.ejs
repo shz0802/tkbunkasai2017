@@ -24,17 +24,16 @@
 			%>
 			<li class="header-menu__item header-menu__item-<%= count+1 %> <% if(currentPage){%>is-current<%}%> touchItem">
 				<div class="header-menu__item__element shown <% if(currentPage){%>is-hidden<%}%>">
-					<% if(currentPage){ %><%= item["disc"] %><%}else{%><a href="<%= '../../' + item['key'] + '.html' %>"><%= item["disc"] %></a><%}%>
+					<% if(currentPage){ %><%= item["disc"] %><%}else{%><a href="<%= '../../' + item['key'] %>"><%= item["disc"] %></a><%}%>
 				</div>
 				<div class="header-menu__item__element hidden <% if(currentPage){%>is-shown<%}%>">
-					<% if(currentPage){ %><%= item["disc"] %><%}else{%><a href="<%= '../../' +  item['key'] + '.html' %>"><%= item["disc"] %></a><%}%>
+					<% if(currentPage){ %><%= item["disc"] %><%}else{%><a href="<%= '../../' +  item['key'] %>"><%= item["disc"] %></a><%}%>
 				</div>
 			</li>
 			<%});%>
 			<ul class="header-menu-sm">
-				<li class="header-menu-sm__item"><a href="../../contact.html">お問い合わせ</a></li>
-				<li class="header-menu-sm__item"><a href="../../links.html">各種リンク</a></li>
-				<li class="header-menu-sm__item"><a href="../../student.html">生徒向けページ</a></li>
+				<li class="header-menu-sm__item"><a href="../../contact">お問い合わせ</a></li>
+				<li class="header-menu-sm__item"><a href="../../links">各種リンク</a></li>
 			</ul>
 		</ul>
 		<footer class="menu-footer">

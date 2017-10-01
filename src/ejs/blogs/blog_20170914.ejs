@@ -1,14 +1,16 @@
-<% var pageName = "" %>
+<% var pageName = "ブログを開設しました！" %>
 <%- include("../components/_blog-header.ejs",{pageName:pageName}) %>
 <%- include("../components/_blog-menu.ejs",{pageId:""}) %>
-<main id="main">
-	<h1 class="parlevel1-headline"><span><%= pageName %></span></h1>
+<main id="main" class="main-blog-content">
 	<div class="parlevel1-content">
-		<p class="blog-text">文化祭、それはたくさんの準備の積み重ねです。</p>
-		<p class="blog-text">開催されるのはたった三日間。しかし筑駒文化祭は三日間かかっても全てを理解することができないほど、多様で、複雑です。その一部分でも知ってもらいたい、という願いを込めて作ったのがこのブログです。</p>
-		<p class="blog-text">ここから様々な情報を発信していきます。少しでも目を通していただければ、より筑駒文化祭を楽しんでいただける、そんな記事になっています。</p>
-		<p class="blog-text">このブログは、文化祭実行委員会のメンバーが文化祭に関する記事を不定期で執筆します。このページから、文化祭当日には見られない筑駒生の新たな一面を感じていただけたら幸いです。</p>
-		</p>
-	</div>
+		<h2 class="parlevel2-headline-single"><span><%= pageName %></span></h2>
+		<div class="parlevel2-content">
+			<p class="parlevel2-text">　文化祭、それはたくさんの準備の積み重ねです。</p>
+			<p class="parlevel2-text">　開催されるのはたった三日間。しかし筑駒文化祭は三日間かかっても全てを理解することができないほど、多様で、複雑です。その一部分でも知ってもらいたい、という願いを込めて作ったのがこのブログです。</p>
+			<p class="parlevel2-text">　ここから様々な情報を発信していきます。少しでも目を通していただければ、より筑駒文化祭を楽しんでいただける、そんな記事になっています。</p>
+			<p class="parlevel2-text">　このブログは、文化祭実行委員会のメンバーが文化祭に関する記事を不定期で執筆します。このページから、文化祭当日には見られない筑駒生の新たな一面を感じていただけたら幸いです。</p>
+		</div>
+		<div class="back-to-top-blog"><a href="../blog">ブログのトップページへ戻る</a></div>
+	</div>	
 </main>
 <%- include("../components/_blog-footer.ejs") %>
