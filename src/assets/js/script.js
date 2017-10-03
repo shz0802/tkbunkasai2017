@@ -347,5 +347,20 @@ $(function(){
 			$(".deco-search-box").removeClass("is-open");
 			resetSearchBoxHeight(100);
 		}
-	});	
+	});
+
+	$(".groups-headline-trigger").touchInterface(function(e,$_this){
+		var trigger = $_this,
+			list = $("[data-deco-list-num="+ $_this.data("decoListTriggerNum") +"]"),
+			listItem = $(".deco-list__item",list);
+		if(list.attr("class") == "deco-list-open"){
+			$_this.removeClass("is-on");
+			list.removeClass("deco-list-open").stop().slideUp(500);
+		}else{
+			$(".is-on").removeClass("is-on");
+			$_this.addClass("is-on");
+			$(".deco-list-open").removeClass("deco-list-open").stop().slideUp(500);
+			list.addClass("deco-list-open").stop().slideDown(500);
+		}
+	});
 });

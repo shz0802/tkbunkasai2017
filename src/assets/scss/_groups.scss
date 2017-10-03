@@ -1,9 +1,11 @@
 .main-groups{
+	min-height: 100vh;
     .deco-search-box{
 		position: relative;
 		width: 80%;
 		height: 15vw;
 		margin-left: 10%;
+		margin-bottom: 15vw;
 		border-top: dashed 2px $baseColor;
 		border-bottom: dashed 2px $baseColor;
 		box-sizing: border-box;
@@ -31,6 +33,7 @@
 					line-height: 2;					
 					display: none;
 					&[data-deco-num = '7']{font-size: 3vw;}
+					&[data-deco-num = '8']{font-size: 3vw;}
 				}
 			}
 			.serach-word-too-short,.not-found{
@@ -40,21 +43,50 @@
 			}
         }
     }
-    .deco-list{
-        padding: 0;
+    .deco-list-wrap{
+		padding: 0;
+		.deco-list{
+			position: relative;
+			ul{
+				margin: 0 auto 0;
+				display: none;
+				padding: 0;
+			}
+		}
+		.groups-headline-trigger{
+			position: absolute;
+			top: 0;
+			left: 5vw;
+			width: 90vw;
+			height: calc(4.5vw * 1.75);
+			text-align: right;
+			box-sizing: border-box;
+			padding-right: 2.5vw;
+			transform: rotateZ(0);
+			font-size: 4.5vw;
+			i{transition: .5s all ease;}
+			&.is-on{
+				i{transform: rotateX(180deg);}
+			}
+		}
         .deco-list__item{
-            margin-left: 5vw;
+			position: relative;
+			width: 90%;
+			margin-left: 5vw;
+			box-sizing: border-box;
+			padding-left: 13.5vw;
             div{display: inline-block;}
             font-size: 4vw;
-			line-height: 2;
-			&[data-deco-num = '7']{font-size: 3.34vw;}
-            &::before{
-                content: "";
-                display: inline-block;
-                width: 4vw;
-                height: 4vw;
-                background-size: cover;
-            }
+			line-height: 3;
+			&[data-deco-num ~= '7'],&[data-deco-num ~= '23']{font-size: 3vw;line-height: 4;}
+			border-bottom: .1px dashed rgba(0,0,0,0.6);
+			.deco-img{
+				position: absolute;
+				width: 10vw;
+				height: 10vw;
+				top: 1vw;
+				left: 1vw;
+			}
         }
     }
 }
@@ -81,8 +113,8 @@
     display: none;
     opacity: 1;
     z-index: 3000;
-    transition: .5s all ease;
-    &.is-shown{opacity: 1;}
+    // transition: .25s all ease;
+    // &.is-shown{opacity: 1;}
     .deco-desc-modal__item{
         width: 100%;
         min-height: 100vw;

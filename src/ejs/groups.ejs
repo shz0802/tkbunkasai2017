@@ -27,25 +27,23 @@
 				<p class='not-found'>検索ワードに当てはまる団体はありませんでした。</p>
 			</div>
 		</div>
-		<ul class="deco-list">
+		<div class="deco-list-wrap">
 			<%
 				var decoList = jsonData[0].decoDeta;
 				decoList.forEach(function(deco,num){
 			%>
-			<% if(num == 0){%><h2 class="parlevel2-headline-single">展示</h2><%}%>
-			<% if(num == 17){%><h2 class="parlevel2-headline-single">演劇</h2><%}%>
-			<% if(num == 28){%><h2 class="parlevel2-headline-single">パフォーマンス・その他</h2><%}%>
+			<% if(num == 0){%><div class="deco-list"><h2 class="parlevel2-headline-single groups-headline">展示</h2><div class="groups-headline-trigger"  data-deco-list-trigger-num="1"><i class="fa fa-chevron-down" aria-hidden="true"></i></div><ul data-deco-list-num="1"><%}%>
+			<% if(num == 17){%></ul></div><div class="deco-list"><h2 class="parlevel2-headline-single groups-headline">演劇</h2><div class="groups-headline-trigger" data-deco-list-trigger-num="2"><i class="fa fa-chevron-down" aria-hidden="true"></i></div><ul data-deco-list-num="2"><%}%>
+			<% if(num == 28){%></ul></div><div class="deco-list"><h2 class="parlevel2-headline-single groups-headline">パフォーマンス・その他</h2><div class="groups-headline-trigger" data-deco-list-trigger-num="3"><i class="fa fa-chevron-down" aria-hidden="true"></i></div><ul data-deco-list-num="3"><%}%>
 			<li class="deco-list__item" data-deco-num="<%= num %>">
+				<img class="deco-img" src="http://placehold.jp/150x150.png"/>
 				<div class="deco-name"><%= deco.decoName %></div>
 				<div class="deco-title"><%= deco.decoTitle %></div>
-				<span class="search-word" style="display:none;">
-					<% for(var i=0; i < deco.searchWord.length; i++){ %>
-						<%= deco.searchWord[i] %>
-					<% } %>
-				</span>
+				<span class="search-word" style="display:none;"><% for(var i=0; i < deco.searchWord.length; i++){ %><%= deco.searchWord[i] %>&nbsp;<% } %></span>
 			</li>
 			<% }); %>
-		</ul>
+			</ul>
+		</div>
 	</div>
 </main>
 <%- include("components/_footer.ejs") %>
