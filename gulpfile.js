@@ -7,6 +7,7 @@ var notify = require("gulp-notify");
 var browserSync = require('browser-sync');
 var ejs = require("gulp-ejs");
 var rename = require("gulp-rename");
+var jsonData = require("./src/assets/json/data.json");
 
 gulp.task('scss', function() {
   gulp.src("src/assets/scss/stylesheet.scss")
@@ -39,7 +40,7 @@ gulp.task("ejs",function(){
         .pipe(plumber({
             errorHandler: notify.onError("<%= error.message %>")
         }))
-        .pipe(ejs())
+        .pipe(ejs({jsonData:jsonData}))
         .pipe(rename({extname:".html"}))
         .pipe(gulp.dest("src/"));
 });
@@ -48,6 +49,6 @@ gulp.task("default",["browser-sync"], function() {
     gulp.watch("src/assets/scss/**/*.scss",["scss"]);
     gulp.watch("src/ejs/**/*.ejs", ['ejs']);
     gulp.watch("src/**/*.html", ['bs-reload']);
-    gulp.watch("src/assets/js/*.js", ['bs-reload']);
-    gulp.watch("src/assets/css/*.css", ['bs-reload']);
+    gulp.watch("src/**/*.css", ['bs-reload']);
+    gulp.watch("src/**/*.js", ['bs-reload']);
 });

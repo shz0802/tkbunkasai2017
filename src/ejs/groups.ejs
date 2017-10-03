@@ -4,7 +4,48 @@
 <main id="main" class="main-groups">
 	<h1 class="parlevel1-headline"><span><%= pageName %></span></h1>
 	<div class="parlevel1-content">
-		<p class="parlevel1-text">Coming Soon!</p>
+		<div class="deco-search-box">
+			<input type="text" class="deco-search-box__input" placeholder="団体名で検索">
+			<div class="deco-search-result">
+				<ul class="deco-search-result__list">					
+					<%
+						var decoList = jsonData[0].decoDeta;
+						decoList.forEach(function(deco,num){
+					%>
+					<li class="deco-list__item" data-deco-num="<%= num %>">
+						<div class="deco-name"><%= deco.decoName %></div>
+						<div class="deco-title"><%= deco.decoTitle %></div>
+						<span class="search-word" style="display:none;">
+							<% for(var i=0; i < deco.searchWord.length; i++){ %>
+								<%= deco.searchWord[i] %>
+							<% } %>
+						</span>
+					</li>
+					<% }); %>
+				</ul>
+				<p class='serach-word-too-short'>検索ワードが短すぎます。</p>
+				<p class='not-found'>検索ワードに当てはまる団体はありませんでした。</p>
+			</div>
+		</div>
+		<ul class="deco-list">
+			<%
+				var decoList = jsonData[0].decoDeta;
+				decoList.forEach(function(deco,num){
+			%>
+			<% if(num == 0){%><h2 class="parlevel2-headline-single">展示</h2><%}%>
+			<% if(num == 17){%><h2 class="parlevel2-headline-single">演劇</h2><%}%>
+			<% if(num == 28){%><h2 class="parlevel2-headline-single">パフォーマンス・その他</h2><%}%>
+			<li class="deco-list__item" data-deco-num="<%= num %>">
+				<div class="deco-name"><%= deco.decoName %></div>
+				<div class="deco-title"><%= deco.decoTitle %></div>
+				<span class="search-word" style="display:none;">
+					<% for(var i=0; i < deco.searchWord.length; i++){ %>
+						<%= deco.searchWord[i] %>
+					<% } %>
+				</span>
+			</li>
+			<% }); %>
+		</ul>
 	</div>
 </main>
 <%- include("components/_footer.ejs") %>

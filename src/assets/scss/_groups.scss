@@ -1,0 +1,92 @@
+.main-groups{
+    .deco-search-box{
+		position: relative;
+		width: 80%;
+		height: 15vw;
+		margin-left: 10%;
+		border-top: dashed 2px $baseColor;
+		border-bottom: dashed 2px $baseColor;
+		box-sizing: border-box;
+		text-align: center;
+		transition: .5s all ease;
+		&.is-open{height: 25vw !important;}
+    	.deco-search-box__input{
+        	display: block;
+			width: 60vw;
+			height: 7.5vw;
+			border-radius: 0;
+			background-color: rgba(255,255,255,0.8);
+			border: solid 1px $baseWhite;
+			box-shadow: 0 0 0 0;
+			padding-left: 2vw;
+        	margin: 2.5vw auto 0;
+		}
+		.deco-search-result{
+			width: 100%;
+			.deco-search-result__list{
+				padding: 0;
+				.deco-list__item{
+					div{display: inline-block;}
+					font-size: 3.34vw;
+					line-height: 2;					
+					display: none;
+					&[data-deco-num = '7']{font-size: 3vw;}
+				}
+			}
+			.serach-word-too-short,.not-found{
+				display: none;
+				white-space: pre;
+				font-size: 3.34vw;
+			}
+        }
+    }
+    .deco-list{
+        padding: 0;
+        .deco-list__item{
+            margin-left: 5vw;
+            div{display: inline-block;}
+            font-size: 4vw;
+			line-height: 2;
+			&[data-deco-num = '7']{font-size: 3.34vw;}
+            &::before{
+                content: "";
+                display: inline-block;
+                width: 4vw;
+                height: 4vw;
+                background-size: cover;
+            }
+        }
+    }
+}
+
+.deco-desc-modal-wrap{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 2000;
+}
+.deco-desc-modal{
+    position: absolute;
+    background-color: $baseWhite;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 90vw;
+    height: 100vw;
+    left: 5vw;
+    top: calc(50vh - 50vw);
+    padding: 0;
+    display: none;
+    opacity: 1;
+    z-index: 3000;
+    transition: .5s all ease;
+    &.is-shown{opacity: 1;}
+    .deco-desc-modal__item{
+        width: 100%;
+        min-height: 100vw;
+        margin-left: 10vw;
+        text-align: center;
+    }
+}

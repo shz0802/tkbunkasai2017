@@ -426,11 +426,13 @@ body.body-top{
     @include mq(md){img{width: 5vw;height: 5vw;}}
     @include mq(lg){img{width: 5vw;height: 5vw;}}
     &::after{
-        content: "";
+		content: "";
+		top: 0;
+    	left: 0;
         display: block;
         position: fixed;
         z-index: 4000;
-        background-color: rgba(251,251,246,.1);
+        background:rgba(0,0,0,0.1);
         width: 100vw;
         height: 100vh;
     }
