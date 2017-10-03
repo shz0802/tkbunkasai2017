@@ -655,10 +655,10 @@ body.body-top{
             background-color: #fefefe;
             box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.4), inset 0px 0px 0px 2vw #fefefe, inset 2vw 2vw 0px 2px $baseColor, inset -2vw -2vw 0px 2px $baseColor;
             width: 90vw;
-            height: 40vw;
             margin-top: 15vw;
             margin-left: 5vw;
-            padding-top: 2.5vw;
+			padding-top: 2.5vw;
+			padding-bottom: 2.5vw;
 			@include mq(sm){padding-top: 8vw;height: 30vw;}
             .top-latest-news{
                 width: 100%;
@@ -684,7 +684,6 @@ body.body-top{
             }
             @include mq(md){
                 width: 60vw;
-                height: 20vw;
                 margin-top: 10vw;
                 margin-left: 20vw;
                 .top-latest-news{
