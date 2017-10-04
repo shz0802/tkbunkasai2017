@@ -7,7 +7,8 @@ var notify = require("gulp-notify");
 var browserSync = require('browser-sync');
 var ejs = require("gulp-ejs");
 var rename = require("gulp-rename");
-var jsonData = require("./src/assets/json/data.json");
+var fs = require('fs');
+var jsonData = JSON.parse(fs.readFileSync("./src/assets/json/data.json","utf8"));
 
 gulp.task('scss', function() {
   gulp.src("src/assets/scss/stylesheet.scss")
@@ -50,5 +51,6 @@ gulp.task("default",["browser-sync"], function() {
     gulp.watch("src/ejs/**/*.ejs", ['ejs']);
     gulp.watch("src/**/*.html", ['bs-reload']);
     gulp.watch("src/**/*.css", ['bs-reload']);
-    gulp.watch("src/**/*.js", ['bs-reload']);
+	gulp.watch("src/**/*.js", ['bs-reload']);
+	gulp.watch("src/**/*.json", ['ejs']);
 });

@@ -12,13 +12,11 @@
 						var decoList = jsonData[0].decoDeta;
 						decoList.forEach(function(deco,num){
 					%>
-					<li class="deco-list__item" data-deco-num="<%= num %>">
+					<li class="deco-list__item" data-deco-num-search="<%= num %>">
 						<div class="deco-name"><%= deco.decoName %></div>
 						<div class="deco-title"><%= deco.decoTitle %></div>
 						<span class="search-word" style="display:none;">
-							<% for(var i=0; i < deco.searchWord.length; i++){ %>
-								<%= deco.searchWord[i] %>
-							<% } %>
+							<% for(var i=0; i < deco.searchWord.length; i++){ %><%= deco.searchWord[i] %>&nbsp;<% } %>
 						</span>
 					</li>
 					<% }); %>
@@ -36,14 +34,32 @@
 			<% if(num == 17){%></ul></div><div class="deco-list"><h2 class="parlevel2-headline-single groups-headline">演劇</h2><div class="groups-headline-trigger" data-deco-list-trigger-num="2"><i class="fa fa-chevron-down" aria-hidden="true"></i></div><ul data-deco-list-num="2"><%}%>
 			<% if(num == 28){%></ul></div><div class="deco-list"><h2 class="parlevel2-headline-single groups-headline">パフォーマンス・その他</h2><div class="groups-headline-trigger" data-deco-list-trigger-num="3"><i class="fa fa-chevron-down" aria-hidden="true"></i></div><ul data-deco-list-num="3"><%}%>
 			<li class="deco-list__item" data-deco-num="<%= num %>">
-				<img class="deco-img" src="http://placehold.jp/150x150.png"/>
+				<img class="deco-img" src="http://placehold.jp/200x150.png"/>
+				<img class="deco-icon" src="assets/img/deco-icons/deco-icon_<%= deco.decoName %>.svg"/>
 				<div class="deco-name"><%= deco.decoName %></div>
 				<div class="deco-title"><%= deco.decoTitle %></div>
-				<span class="search-word" style="display:none;"><% for(var i=0; i < deco.searchWord.length; i++){ %><%= deco.searchWord[i] %>&nbsp;<% } %></span>
+				<div class="deco-desc"><%- deco.decoDesc %></div>
 			</li>
 			<% }); %>
 			</ul>
 		</div>
 	</div>
 </main>
+<div class="deco-desc-modal-wrap">
+	<div class="deco-desc-modal deco-desc-modal-prev">
+		<div class="deco-desc-modal__down-arrow"><span>↓</span></div>
+		<div class="deco-desc-modal__item"></div>
+		<div class="deco-desc-modal__close">閉じる</div>
+	</div>
+	<div class="deco-desc-modal deco-desc-modal-current">
+		<div class="deco-desc-modal__down-arrow"><span>↓</span></div>
+		<div class="deco-desc-modal__item"></div>
+		<div class="deco-desc-modal__close">閉じる</div>
+	</div>
+	<div class="deco-desc-modal deco-desc-modal-next">
+		<div class="deco-desc-modal__down-arrow"><span>↓</span></div>
+		<div class="deco-desc-modal__item"></div>
+		<div class="deco-desc-modal__close">閉じる</div>
+	</div>
+</div>
 <%- include("components/_footer.ejs") %>
