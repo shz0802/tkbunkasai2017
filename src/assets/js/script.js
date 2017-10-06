@@ -82,7 +82,7 @@ function enterPageButton(){
 		$(document).off(scroll_event);
 		$(document).off('.noScroll');
 		$("body").removeClass("is-scrollOff");
-		$(".index-bg,#smph-header,#main").removeClass("is-beforeStart");
+		$(".index-bg,#main").removeClass("is-beforeStart");
 	});
 }
 
@@ -91,6 +91,14 @@ function topAnimationSkip(){
 	$(".enter-page__whatHappens-wrap,.baseCircle,.rect,.enter-page__logo,.circle2,.tri,.hex,.rect-m,.tri-m,.enter-page__logo-wrap,.enter-page__logo-text-item,.enter-page__logo-text-item-dec,.enter-page__button,.rect1,.rect2,.rect3,.rect4,.rect5,.rect6").addClass("is-skipped-force");
 	enterPageButton();
 	topBgAnimation();
+}
+
+function loadStyleSheet(){
+	var link = document.createElement("link");
+	link.href = "assets/css/stylesheet.css?timestamp=" + date.getTime();
+	link.rel = "stylesheet";
+	var head = document.getElementsByTagName("head")[0];
+	head.appendChild(link);
 }
 
 function topBgAnimation(){
@@ -120,13 +128,16 @@ $(function(){
 		$(".index-bg-"+i).attr("src","assets/img/bg-"+ (1+Math.floor(Math.random()*(40))) +".svg?timestamp="+date.getTime());
 	}
 
+	// set menu transition
+	$("#smph-header,#header-menu,#smph-pagecover").addClass("is-started");
+
 	// hide the loader
 	setTimeout(function(){
 		$("#loader").removeClass("is-beforeStart"); // loader hide animation
 		setTimeout(function(){
 			$("#loader").css("display","none"); // actually hide loader
 		},500);
-	},1500);
+	},2000);
 
 	 // if IE, stop showing animation
 	var ua = navigator.userAgent;
@@ -154,32 +165,13 @@ $(function(){
 
 	if(location.pathname == "/" || location.pathname == "/development/" || location.pathname == "/index.html"){ // animation only in index.html
 		if($.cookie("alreadyVisit")){ // if already visited stop showing animation
-			// load stylesheet.css
-			var link = document.createElement("link"), script = document.createElement("script");
-			link.href = "assets/css/stylesheet.css?timestamp=" + date.getTime();
-			link.rel = "stylesheet";
-			script.href = "https://use.typekit.net/juh7fjb.js?timestamp=" + date.getTime();
-			script.async = "async";
-			var head = document.getElementsByTagName("head")[0];
-			head.appendChild(link);
-			head.appendChild(script);
-			// add main contents
-			$.ajax({
-				type: "GET",
-				url: "../../top-main.html",
-				success : function(dom){$('#container').append(dom);}
-			});
+			loadStyleSheet();
 			topAnimationSkip();
 			$("#enter-page").hide();
 		}else{
 			// force no scroll
 			$(document).on(scroll_event,function(e){e.preventDefault();});
 			$(document).on('touchmove.noScroll', function(e) {e.preventDefault();});
-			// load stylesheet.css
-			var script = document.createElement("script");
-			script.href = "https://use.typekit.net/juh7fjb.js?timestamp=" + date.getTime();
-			var head = document.getElementsByTagName("head")[0];
-			head.appendChild(script);
 
 			// set the position of enter page
 			$("#enter-page").removeClass("is-beforeStart");
@@ -188,7 +180,7 @@ $(function(){
 			$(".enter-page__whatHappens-wrap").css("hight",$(window).outerHeight())
 
 			// hide following contents
-			$(".index-bg,#smph-header,#main").addClass("is-beforeStart");
+			$(".index-bg,#main").addClass("is-beforeStart");
 
 			// animation
 			setTimeout(function(){
@@ -198,6 +190,7 @@ $(function(){
 						// show skip button
 						$(".enter-page__skip").fadeIn(500);
 						$(".enter-page__skip").on("touchend mouseup",function(){
+							loadStyleSheet();
 							topAnimationSkip();
 							$(this).fadeOut(1000);
 						});
@@ -222,23 +215,12 @@ $(function(){
 									$(".rect").addClass("is-started-2");
 									$(".enter-page__logo,.circle2,.tri,.hex,.rect-m,.tri-m").addClass("is-started");
 									setTimeout(function(){
-										// load stylesheet.css
-										var link = document.createElement("link");
-										link.href = "assets/css/stylesheet.css?timestamp=" + date.getTime();
-										link.rel = "stylesheet";
-										var head = document.getElementsByTagName("head")[0];
-										head.appendChild(link);
-										// add main contents
-										// add main contents
-										$.ajax({
-											type: "GET",
-											url: "../../top-main.html",
-											success : function(dom){$('#container').append(dom);}
-										});
+										loadStyleSheet();
 										// show letters and button
 										$(".enter-page__logo-wrap,.enter-page__logo-text-item,.enter-page__button").addClass("is-started");
 										$(".enter-page__skip").fadeOut(500);
 										enterPageButton();
+										topBgAnimation();
 									},2500);
 								},6500);
 							},500);

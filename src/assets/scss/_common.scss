@@ -40,11 +40,8 @@ body{background-color: $baseWhite;font-family: $baseFont_jp;}
 
 
 // peculoar to smph
-@mixin smphMenuOpen {transition: .5s all ease-in-out;}
 #smph-pagecover{
-    @include mq(md){display: none;}
-    @include mq(lg){display: none;}
-    display: block;
+    display: none;
     opacity: 0;
     position: fixed;
     z-index: 1000;
@@ -52,8 +49,13 @@ body{background-color: $baseWhite;font-family: $baseFont_jp;}
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: transparent;
-    @include smphMenuOpen;
+	background-color: transparent;
+	&.is-started{
+		display: block;
+		transition:0.5s all ease-in-out;
+		@include mq(md){display: none;}
+		@include mq(lg){display: none;}
+	}
     &.is-opened{
         opacity: 1;
         transform: translateX(75vw);
@@ -63,6 +65,7 @@ body{background-color: $baseWhite;font-family: $baseFont_jp;}
     }
 }
 #smph-header{
+	display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -71,11 +74,12 @@ body{background-color: $baseWhite;font-family: $baseFont_jp;}
     background-color: $baseColor;
     box-shadow: 0 0 5px 5px rgba(0,0,0,0.2);
     @include mq(sm){height: 12.5vw;}
-    @include mq(md){display: none;}
-    @include mq(lg){display: none;}
-    @include smphMenuOpen;
-    opacity: 1;
-    &.is-beforeStart{opacity: 0;}
+	&.is-started{
+		display: block;
+		transition:0.5s all ease-in-out;
+		@include mq(md){display: none;}
+		@include mq(lg){display: none;}
+	}
     &.is-opened{
         background-color: darken($baseColor, 10%);
         transform: translateX(75vw);
@@ -92,8 +96,8 @@ body{background-color: $baseWhite;font-family: $baseFont_jp;}
         @include mq(sm){
             width: 15vw;
             height: 12.5vw;
-        }
-        @include smphMenuOpen;
+		}
+		transition: .5s all ease-in-out;
         span{
             display: block;
             position: absolute;
@@ -195,6 +199,7 @@ body{background-color: $baseWhite;font-family: $baseFont_jp;}
         height: 100vh;
     }
     #header-menu{
+		display: none;
         position: absolute;
         height: 100vh;
         top:0;
@@ -205,8 +210,11 @@ body{background-color: $baseWhite;font-family: $baseFont_jp;}
         overflow-y: auto;
         -webkit-overflow-scrolling:touch;
         @include disactivateLinkColors;
-        @include smphMenuOpen;
-        &.is-opened{transform: translateX(0);box-shadow: 0 0 10px 10px rgba(0,0,0,0.3);}
+		&.is-opened{transform: translateX(0);box-shadow: 0 0 10px 10px rgba(0,0,0,0.3);}
+		&.is-started{
+			display: block !important;
+			transition:0.5s all ease-in-out;
+		}
         @include mq{
             transform: translateX(-75vw);
             width: 75vw;
