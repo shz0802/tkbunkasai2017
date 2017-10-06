@@ -7,9 +7,10 @@ var notify = require("gulp-notify");
 var browserSync = require('browser-sync');
 var ejs = require("gulp-ejs");
 var rename = require("gulp-rename");
+var uglify = require("gulp-uglify");
 
 gulp.task('scss', function() {
-  gulp.src("src/assets/scss/stylesheet.scss")
+  gulp.src(["src/assets/scss/**/*.scss","!src/assets/scss/**/_*.scss"])
     .pipe(plumber({
         errorHandler: notify.onError('<%= error.message %>')
     }))
@@ -44,9 +45,18 @@ gulp.task("ejs",function(){
         .pipe(gulp.dest("src/"));
 });
 
+gulp.task('js', function() {
+    gulp.src("src/assets/js/*.js")
+        .pipe(plumber())
+        .pipe(uglify())
+        .pipe(rename({extname: '.min.js'}))
+        .pipe(gulp.dest("src/assets/js/min/"));
+});
+
 gulp.task("default",["browser-sync"], function() {
-    gulp.watch("src/assets/scss/**/*.scss",["scss"]);
-    gulp.watch("src/ejs/**/*.ejs", ['ejs']);
+	gulp.watch("src/assets/scss/**/*.scss",["scss"]);
+	gulp.watch("src/ejs/**/*.ejs", ['ejs']);
+	gulp.watch("src/assets/js/*.js", ['js']);
     gulp.watch("src/**/*.html", ['bs-reload']);
     gulp.watch("src/assets/js/*.js", ['bs-reload']);
     gulp.watch("src/assets/css/*.css", ['bs-reload']);

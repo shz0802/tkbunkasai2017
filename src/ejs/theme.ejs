@@ -1,25 +1,25 @@
-<% var pageName = '"Dice!"とは？' %>
-<%- include("components/_header.ejs",{pageName:pageName}) %>
-<%- include("components/_menu.ejs",{pageId:"theme"}) %>
-<main id="main" class="main-theme">
-	<h1 class="parlevel1-headline"><span><%= pageName %></span></h1>
-	<div class="parlevel1-content">
-		<div class="theme-logo">
-			<img src="assets/img/theme-logo.svg" alt="">
-		</div>
-		<h2 class="parlevel2-headline">「Dice!」</h2>
-		<div class="parlevel2-content">
-			<p class="parlevel2-text">　今年の文化祭のテーマ"Dice!"は、英語で「サイコロ」を意味する言葉です。</p>
-			<p class="parlevel2-text">　第66回、今年は6のゾロ目の年。そこで今年は「6」に関連して、6面の立方体、サイコロがテーマです。</p>
-			<p class="parlevel2-text">　サイコロを振る結果というものはいつも予測できません。それは文化祭も同じです。<br>　だからこそ様々なことが起こります。その中には失敗もあれば発見もあり、興奮もあれば感動もあります。<br></p>
-			<p class="parlevel2-text">　「何が起こるかわからない文化祭を、なんとしても成功させたい。」</p>
-			<p class="parlevel2-text">　今回のテーマはそんな筑駒生の気持ちがこもったものです。</p>
-		</div>
-		<h2 class="parlevel2-headline">ロゴについて</h2>
-		<div class="parlevel2-content">
-			<p class="parlevel2-text">　今回の文化祭のテーマロゴは、サイコロをモチーフにした6つの正方形と1つの円を組み合わせて作られています。</p>
-			<p class="parlevel2-text">　中央から各方に伸びる矢印は予測できないような文化祭、大きな円は全生徒が一つになって作りあげる大きな文化祭をそれぞれ表現しています。</p>
-		</div>
-	</div>
-</main>
-<%- include("components/_footer.ejs") %>
+<% var pageName = '"Dice!"とは？',path="theme",date = new Date(); -%>
+<%- include("components/_header.ejs",{pageName:pageName,path:path}) -%>
+<%- include("components/_menu.ejs",{pageId:"theme"}) -%>
+		<main id="main" class="main-theme">
+			<h1 class="parlevel1-headline"><span><%= pageName %></span></h1>
+			<div class="parlevel1-content">
+				<div class="theme-logo">
+					<img src="assets/img/theme-logo.svg?timestamp=<%= date.getTime() %>" alt='第66回筑駒文化祭"Dice!"ロゴ(大)'>
+				</div>
+				<h2 class="parlevel2-headline">「Dice!」</h2>
+				<div class="parlevel2-content">
+					<p class="parlevel2-text">　今年の文化祭のテーマ"Dice!"は、英語で「サイコロ」を意味する言葉です。</p>
+					<p class="parlevel2-text">　第66回、今年は6のゾロ目の年。そこで今年は「6」に関連して、6面の立方体、サイコロがテーマです。</p>
+					<p class="parlevel2-text">　サイコロを振る結果というものはいつも予測できません。それは文化祭も同じです。<br>　だからこそ様々なことが起こります。その中には失敗もあれば発見もあり、興奮もあれば感動もあります。<br></p>
+					<p class="parlevel2-text">　「何が起こるかわからない文化祭を、なんとしても成功させたい。」</p>
+					<p class="parlevel2-text">　今回のテーマはそんな筑駒生の気持ちがこもったものです。</p>
+				</div>
+				<h2 class="parlevel2-headline">ロゴについて</h2>
+				<div class="parlevel2-content">
+					<p class="parlevel2-text">　今回の文化祭のテーマロゴは、サイコロをモチーフにした6つの正方形と1つの円を組み合わせて作られています。</p>
+					<p class="parlevel2-text">　中央から各方に伸びる矢印は予測できないような文化祭、大きな円は全生徒が一つになって作りあげる大きな文化祭をそれぞれ表現しています。</p>
+				</div>
+			</div>
+		</main>
+<%- include("components/_footer.ejs") -%>

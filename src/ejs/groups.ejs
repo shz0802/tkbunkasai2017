@@ -1,10 +1,10 @@
-<% var pageName = "団体紹介" %>
-<%- include("components/_header.ejs",{pageName:pageName}) %>
-<%- include("components/_menu.ejs",{pageId:"groups"}) %>
-<main id="main" class="main-groups">
-	<h1 class="parlevel1-headline"><span><%= pageName %></span></h1>
-	<div class="parlevel1-content">
-		<p class="parlevel1-text">Coming Soon!</p>
-	</div>
-</main>
-<%- include("components/_footer.ejs") %>
+<% var pageName = "団体紹介",path="groups" -%>
+<%- include("components/_header.ejs",{pageName:pageName,path:path}) -%>
+<%- include("components/_menu.ejs",{pageId:"groups"}) -%>
+	<main id="main" class="main-groups">
+		<h1 class="parlevel1-headline"><span><%= pageName %></span></h1>
+		<div class="parlevel1-content">
+			<p class="parlevel1-text">Coming Soon!</p>
+		</div>
+	</main>
+<%- include("components/_footer.ejs") -%>

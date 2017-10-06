@@ -1,54 +1,54 @@
-<div id="smph-pagecover"></div>
-<header id="header">
-	<div id="smph-header">
-		<div class="smph-header__menu-trigger">
-			<span></span>
-			<span></span>
-			<span></span>
-		</div>
-		<p class="smph-header__txt">MENU</p>
-		<div class="smph-header__logo"><a href="/" class="touchItem"><img src="assets/img/header-logo-smph.png" alt="logo"></a></div>
-	</div>
-	<nav id="header-menu" class="menu">
-		<div class="header-menu__logo"><img src="assets/img/menu-logo.svg" alt=""></div>
-		<ul class="header-menu__list">
-			<%
-				var menuItems=[];
-				var keys = ["index","about","theme","info","access","blog","groups"];
-				var discs = ["トップ","概要",'"Dice!"とは？',"ごあんない","アクセス","ブログ","団体紹介"];
-				for(var i=0;i<keys.length;i++){
-					menuItems[i] = {"key":keys[i],"disc":discs[i]};
-				}
-				menuItems.forEach(function(item,count){
-				var currentPage = (item["key"]==pageId)?true:false;
-			%>
-			<li class="header-menu__item header-menu__item-<%= count+1 %> <% if(currentPage){%>is-current<%}%> touchItem">
-				<div class="header-menu__item__element shown <% if(currentPage){%>is-hidden<%}%>">
-					<% if(currentPage){ %><%= item["disc"] %><%}else{%><a href="<%= item['key'] %>"><%= item["disc"] %></a><%}%>
+<% var date = new Date(); %>
+	<div id="smph-pagecover"></div>
+		<header id="header">
+			<div id="smph-header">
+				<div class="smph-header__menu-trigger">
+					<span></span>
+					<span></span>
+					<span></span>
 				</div>
-				<div class="header-menu__item__element hidden <% if(currentPage){%>is-shown<%}%>">
-					<% if(currentPage){ %><%= item["disc"] %><%}else{%><a href="<%= item['key'] %>"><%= item["disc"] %></a><%}%>
-				</div>
-			</li>
-			<%});%>
-			<ul class="header-menu-sm">
-				<li class="header-menu-sm__item"><a href="contact">お問い合わせ</a></li>
-				<li class="header-menu-sm__item"><a href="links">各種リンク</a></li>
-			</ul>
-		</ul>
-		<footer class="menu-footer">
-			<div class="snsShareButtons">
-				<div class="snsShareButtons__item twitter">
-					<i class="fa fa-twitter" aria-hidden="true"></i>
-				</div>
-				<div class="snsShareButtons__item facebook">
-					<i class="fa fa-facebook-official" aria-hidden="true"></i>
-				</div>
-				<div class="snsShareButtons__item googleplus">
-					<i class="fa fa-google-plus" aria-hidden="true"></i>
-				</div>
+				<p class="smph-header__txt">MENU</p>
+				<div class="smph-header__logo"><a href="/" class="touchItem"><img src="assets/img/header-logo-smph.png?timestamp=<%= date.getTime() %>" alt='第66回筑駒文化祭"Dice!"ロゴ(大)'></a></div>
 			</div>
-			<p class="footer-copyright">© 筑駒文化祭実行委員会 2017</p>
-		</footer>
-	</nav>
-</header>
+			<nav id="header-menu" class="menu">
+				<div class="header-menu__logo"><img src="assets/img/menu-logo.svg?timestamp=<%= date.getTime() %>" alt='第66回筑駒文化祭"Dice!"ロゴ(小)'></div>
+				<ul class="header-menu__list">
+				<%
+					var menuItems=[];
+					var keys = ["index","about","theme","info","access","blog","groups"];
+					var discs = ["トップ","概要",'"Dice!"とは？',"ごあんない","アクセス","ブログ","団体紹介"];
+					for(var i=0;i<keys.length;i++){
+						menuItems[i] = {"key":keys[i],"disc":discs[i]};
+					}
+					menuItems.forEach(function(item,count){
+					var currentPage = (item["key"]==pageId)?true:false;	-%>
+					<li class="header-menu__item header-menu__item-<%= count+1 %> <% if(currentPage){ -%>is-current<%}-%> touchItem">
+						<div class="header-menu__item__element shown <% if(currentPage){%>is-hidden<%}%>">
+							<% if(currentPage){ -%><%= item["disc"] -%><%}else{-%><a href="<%if(item['key']=='index'){ %><%= '/' %><%}else{%><%= item['key'] %><%}%>"><%= item["disc"] %></a><%}%>
+						</div>
+						<div class="header-menu__item__element hidden <% if(currentPage){%>is-shown<%}%>">
+							<% if(currentPage){ %><%= item["disc"] %><%}else{%><a href="<%if(item['key']=='index'){%><%= '/' %><%}else{%><%= item['key'] %><%}%>"><%= item["disc"] %></a><%}%>
+						</div>
+					</li>
+		<%});-%>
+					<ul class="header-menu-sm">
+						<li class="header-menu-sm__item"><a href="contact">お問い合わせ</a></li>
+						<li class="header-menu-sm__item"><a href="links">各種リンク</a></li>
+					</ul>
+				</ul>
+				<footer class="menu-footer">
+					<div class="snsShareButtons">
+						<div class="snsShareButtons__item twitter">
+							<i class="fa fa-twitter" aria-hidden="true"></i>
+						</div>
+						<div class="snsShareButtons__item facebook">
+							<i class="fa fa-facebook-official" aria-hidden="true"></i>
+						</div>
+						<div class="snsShareButtons__item googleplus">
+							<i class="fa fa-google-plus" aria-hidden="true"></i>
+						</div>
+					</div>
+					<p class="footer-copyright">© 筑駒文化祭実行委員会 2017</p>
+				</footer>
+			</nav>
+		</header>

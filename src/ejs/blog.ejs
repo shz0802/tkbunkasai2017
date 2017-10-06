@@ -1,17 +1,17 @@
-<% var pageName = "ブログ" %>
-<%- include("components/_header.ejs",{pageName:pageName}) %>
-<%- include("components/_menu.ejs",{pageId:"blog"}) %>
-<main id="main" class="main-blogs">
-	<h1 class="parlevel1-headline"><span><%= pageName %></span></h1>
-	<div class="parlevel1-content">
-		<ul class="blog-list">
-			<li class="blog-list__item">
-				<a href="blogs/blog_20170914.html"></a>
-				<p class="blog-list__item-date">2017/10/03</p>
-				<h3 class="blog-list__item-title">ブログを開設しました！</h3>
-				<div class="blog-list__item-img"><img src="assets/img/header-logo-smph.png" alt=""></div>
-			</li>
-		</ul>
-	</div>
-</main>
-<%- include("components/_footer.ejs") %>
+<% var pageName = "ブログ",path="blog",date = new Date(); -%>
+<%- include("components/_header.ejs",{pageName:pageName,path:path}) -%>
+<%- include("components/_menu.ejs",{pageId:"blog"}) -%>
+		<main id="main" class="main-blogs">
+			<h1 class="parlevel1-headline"><span><%= pageName %></span></h1>
+			<div class="parlevel1-content">
+				<ul class="blog-list">
+					<li class="blog-list__item">
+						<a href="blogs/blog_20170914"></a>
+						<p class="blog-list__item-date">2017/10/03</p>
+						<h3 class="blog-list__item-title">ブログを開設しました！</h3>
+						<div class="blog-list__item-img"><img src="assets/img/header-logo-smph.png?timestamp=<%= date.getTime() %>" alt='第66回筑駒文化祭"Dice!"ロゴ(小)'></div>
+					</li>
+				</ul>
+			</div>
+		</main>
+<%- include("components/_footer.ejs") -%>

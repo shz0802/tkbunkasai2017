@@ -1,16 +1,16 @@
-<% var pageName = "ブログを開設しました！" %>
-<%- include("../components/_blog-header.ejs",{pageName:pageName}) %>
-<%- include("../components/_blog-menu.ejs",{pageId:""}) %>
-<main id="main" class="main-blog-content">
-	<div class="parlevel1-content">
-		<h2 class="parlevel2-headline-single"><span><%= pageName %></span></h2>
-		<div class="parlevel2-content">
-			<p class="parlevel2-text">　文化祭、それはたくさんの準備の積み重ねです。</p>
-			<p class="parlevel2-text">　開催されるのはたった三日間。しかし、その裏側には多くの見えない努力や工夫が隠れています。その一部分でも知ってもらいたい、という願いを込めて作ったのがこのブログです。</p>
-			<p class="parlevel2-text">　文化祭実行委員会のメンバーが不定期で様々な情報を発信していく予定です。少しでも目を通していただければ、筑駒文化祭をもっと楽しんでいただける、そんな記事にしていきたいと思っています。</p>
-			<p class="parlevel2-text">　それでは、次の更新までお待ちください。</p>
-		</div>
-		<div class="back-to-top-blog"><a href="../blog">ブログのトップページへ戻る</a></div>
-	</div>	
-</main>
-<%- include("../components/_blog-footer.ejs") %>
+<% var pageName = "ブログを開設しました！",path = "blogs/blog_20170914" -%>
+<%- include("../components/_blog-header.ejs",{pageName:pageName}) -%>
+<%- include("../components/_blog-menu.ejs",{pageId:"blog"}) -%>
+		<main id="main" class="main-blog-content">
+			<div class="parlevel1-content">
+				<h2 class="parlevel2-headline-single"><span><%= pageName %></span></h2>
+				<div class="parlevel2-content">
+					<p class="parlevel2-text">　文化祭、それはたくさんの準備の積み重ねです。</p>
+					<p class="parlevel2-text">　開催されるのはたった三日間。しかし、その裏側には多くの見えない努力や工夫が隠れています。その一部分でも知ってもらいたい、という願いを込めて作ったのがこのブログです。</p>
+					<p class="parlevel2-text">　文化祭実行委員会のメンバーが不定期で様々な情報を発信していく予定です。少しでも目を通していただければ、筑駒文化祭をもっと楽しんでいただける、そんな記事にしていきたいと思っています。</p>
+					<p class="parlevel2-text">　それでは、次の更新までお待ちください。</p>
+				</div>
+				<div class="back-to-top-blog"><a href="../blog">ブログのトップページへ戻る</a></div>
+			</div>	
+		</main>
+<%- include("../components/_blog-footer.ejs") -%>

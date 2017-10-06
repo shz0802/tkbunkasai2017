@@ -114,13 +114,10 @@ $("#loader, #enter-page").addClass("is-beforeStart");
 $("#loader").css("display","flex")
 // onload
 $(function(){
-
-	$(document).on("scroll", "body", function(){
-		console.log("");
-	});
 	// set bg
+	date = new Date();
 	for(var i=1;i<=10000;i++){
-		$(".index-bg-"+i).attr("src","assets/img/bg-"+ (1+Math.floor(Math.random()*(40))) +".svg");
+		$(".index-bg-"+i).attr("src","assets/img/bg-"+ (1+Math.floor(Math.random()*(40))) +".svg?timestamp="+date.getTime());
 	}
 
 	// hide the loader
@@ -157,13 +154,32 @@ $(function(){
 
 	if(location.pathname == "/" || location.pathname == "/development/" || location.pathname == "/index.html"){ // animation only in index.html
 		if($.cookie("alreadyVisit")){ // if already visited stop showing animation
+			// load stylesheet.css
+			var link = document.createElement("link"), script = document.createElement("script");
+			link.href = "assets/css/stylesheet.css?timestamp=" + date.getTime();
+			link.rel = "stylesheet";
+			script.href = "https://use.typekit.net/juh7fjb.js?timestamp=" + date.getTime();
+			script.async = "async";
+			var head = document.getElementsByTagName("head")[0];
+			head.appendChild(link);
+			head.appendChild(script);
+			// add main contents
+			$.ajax({
+				type: "GET",
+				url: "../../top-main.html",
+				success : function(dom){$('#container').append(dom);}
+			});
 			topAnimationSkip();
 			$("#enter-page").hide();
 		}else{
 			// force no scroll
 			$(document).on(scroll_event,function(e){e.preventDefault();});
 			$(document).on('touchmove.noScroll', function(e) {e.preventDefault();});
-			$("body").addClass("is-scrollOff");
+			// load stylesheet.css
+			var script = document.createElement("script");
+			script.href = "https://use.typekit.net/juh7fjb.js?timestamp=" + date.getTime();
+			var head = document.getElementsByTagName("head")[0];
+			head.appendChild(script);
 
 			// set the position of enter page
 			$("#enter-page").removeClass("is-beforeStart");
@@ -206,6 +222,19 @@ $(function(){
 									$(".rect").addClass("is-started-2");
 									$(".enter-page__logo,.circle2,.tri,.hex,.rect-m,.tri-m").addClass("is-started");
 									setTimeout(function(){
+										// load stylesheet.css
+										var link = document.createElement("link");
+										link.href = "assets/css/stylesheet.css?timestamp=" + date.getTime();
+										link.rel = "stylesheet";
+										var head = document.getElementsByTagName("head")[0];
+										head.appendChild(link);
+										// add main contents
+										// add main contents
+										$.ajax({
+											type: "GET",
+											url: "../../top-main.html",
+											success : function(dom){$('#container').append(dom);}
+										});
 										// show letters and button
 										$(".enter-page__logo-wrap,.enter-page__logo-text-item,.enter-page__button").addClass("is-started");
 										$(".enter-page__skip").fadeOut(500);

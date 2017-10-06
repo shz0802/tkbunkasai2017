@@ -2,10 +2,12 @@ allow from all
 
 AddType "text/html; charset=utf-8" .html
 
-<Files ~ ".(gif|jpe?g|png|ico)$">
+<Files ~ ".(gif|jpe?g|png|ico|svg)$">
 	Header set Cache-Control "max-age=604800 , public"
 </Files>
-
+<Files ~ ".(html|css|js)$">
+	Header set Cache-Control "max-age=604800 , public"
+</Files>
 
 RewriteEngine on
 RewriteCond %{THE_REQUEST} ^(.*)index.html

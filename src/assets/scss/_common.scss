@@ -11,8 +11,6 @@ body{
             position: absolute;
             background-color: rgba(258,0,127,0.8);
         }
-        &.is-scrollOff{position: fixed; width: 100%;}
-        &.is-scrollOff::-webkit-scrollbar{display: none;}
     }
     @include mq(lg){
         overflow-x: hidden;
@@ -25,8 +23,6 @@ body{
 			position: absolute;
 			background-color: rgba(258,0,127,0.8);
 		}
-		&.is-scrollOff{position: fixed; width: 100%;}
-		&.is-scrollOff::-webkit-scrollbar{display: none;}
     }
 }
 

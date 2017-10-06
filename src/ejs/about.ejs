@@ -1,31 +1,31 @@
-<% var pageName = "概要" %>
-<%- include("components/_header.ejs",{pageName:pageName}) %>
-<%- include("components/_menu.ejs",{pageId:"about"}) %>
-<main id="main" class="main-about">
-	<h1 class="parlevel1-headline"><span><%= pageName %></span></h1>
-	<div class="parlevel1-content">
-		<h2 class="parlevel2-headline">筑駒文化祭とは</h2>
-		<div class="parlevel2-content">
-			<p class="parlevel2-text">　筑駒文化祭は、年に一度開催される筑波大学附属駒場中・高等学校の文化祭です。</p>
-			<p class="parlevel2-text">　生徒組織である文化祭実行委員会と高校3年生が主導し、生徒が一丸となって企画・運営をします。</p>
-			<p class="parlevel2-text">　昨年度は悪天候の日があったにもかかわらず、13129人もの方にご来場いただきました。</p>
-		</div>
-		<h2 class="parlevel2-headline">開催概要</h2>
-		<div class="parlevel2-content">
-			<h3 class="parlevel3-headline">日時</h3>
-			<div class="parlevel3-content">
-				<p class="parlevel3-text">2017年11月3日（金・文化の日）～&nbsp;&nbsp;5日（日）</p>
-				<ul>
-					<li>3日：&nbsp;9:30～16:30</li>
-					<li>4日：&nbsp;9:30～16:00（中夜祭：16:30～18:30）</li>
-					<li>5日：&nbsp;9:30～16:30</li>
-				</ul>
+<% var pageName = "概要",path="about" -%>
+<%- include("components/_header.ejs",{pageName:pageName,path:path}) -%>
+<%- include("components/_menu.ejs",{pageId:"about"}) -%>
+		<main id="main" class="main-about">
+			<h1 class="parlevel1-headline"><span><%= pageName %></span></h1>
+			<div class="parlevel1-content">
+				<h2 class="parlevel2-headline">筑駒文化祭とは</h2>
+				<div class="parlevel2-content">
+					<p class="parlevel2-text">　筑駒文化祭は、年に一度開催される筑波大学附属駒場中・高等学校の文化祭です。</p>
+					<p class="parlevel2-text">　生徒組織である文化祭実行委員会と高校3年生が主導し、生徒が一丸となって企画・運営をします。</p>
+					<p class="parlevel2-text">　昨年度は悪天候の日があったにもかかわらず、13129人もの方にご来場いただきました。</p>
+				</div>
+				<h2 class="parlevel2-headline">開催概要</h2>
+				<div class="parlevel2-content">
+					<h3 class="parlevel3-headline">日時</h3>
+					<div class="parlevel3-content">
+						<p class="parlevel3-text">2017年11月3日（金・文化の日）～&nbsp;&nbsp;5日（日）</p>
+						<ul>
+							<li>3日：&nbsp;9:30～16:30</li>
+							<li>4日：&nbsp;9:30～16:00（中夜祭：16:30～18:30）</li>
+							<li>5日：&nbsp;9:30～16:30</li>
+						</ul>
+					</div>
+					<h3 class="parlevel3-headline">場所</h3>
+					<div class="parlevel3-content">
+						<p class="parlevel3-text">筑波大学附属駒場中・高等学校（<a href="https://www.google.co.jp/maps?q=%e7%ad%91%e6%b3%a2%e5%a4%a7%e5%ad%a6%e9%99%84%e5%b1%9e%e9%a7%92%e5%a0%b4%e4%b8%ad%e5%ad%a6%e6%a0%a1%e3%83%bb%e9%ab%98%e7%ad%89%e5%ad%a6%e6%a0%a1" target="_blank">東京都世田谷区池尻4-7-1</a>）</p>
+					</div>
+				</div>
 			</div>
-			<h3 class="parlevel3-headline">場所</h3>
-			<div class="parlevel3-content">
-				<p class="parlevel3-text">筑波大学附属駒場中・高等学校（<a href="https://www.google.co.jp/maps?q=%e7%ad%91%e6%b3%a2%e5%a4%a7%e5%ad%a6%e9%99%84%e5%b1%9e%e9%a7%92%e5%a0%b4%e4%b8%ad%e5%ad%a6%e6%a0%a1%e3%83%bb%e9%ab%98%e7%ad%89%e5%ad%a6%e6%a0%a1" target="_blank">東京都世田谷区池尻4-7-1</a>）</p>
-			</div>
-		</div>
-	</div>
-</main>
-<%- include("components/_footer.ejs") %>
+		</main>
+<%- include("components/_footer.ejs") -%>

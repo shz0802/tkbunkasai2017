@@ -1,20 +1,20 @@
-<% var pageName = "各種リンク" %>
-<%- include("components/_header.ejs",{pageName:pageName}) %>
-<%- include("components/_menu.ejs",{pageId:""}) %>
-<main id="main" class="main-links">
-	<h1 class="parlevel1-headline"><span><%= pageName %></span></h1>
-	<div class="parlevel1-content">
-		<h2 class="parlevel2-headline">本校公式サイト</h2>
-		<div class="parlevel2-content">
-			<p class="parlevel2-text">　筑波大学附属駒場中・高等学校の公式サイトです。入学案内や本校生徒の活動などを掲載しております。</p>
-			<p class="parlevel2-text">　リンク：<a href="http://www.komaba-s.tsukuba.ac.jp/home/" target="_blank">筑波大学附属駒場中・高等学校ポータルサイト</a></p>
-		</div>
-		<h2 class="parlevel2-headline">公式SNS</h2>
-		<div class="parlevel2-content">
-			<p class="parlevel2-text">　文化祭実行委員会の生徒が文化祭準備の光景や当日の様子をお伝えします。</p>
-			<p class="parlevel2-text">　Twitter：&nbsp;<a href="https://twitter.com/tsukukomafesta/" target="_blank">@tsukukomafesta</a></p>
-			<p class="parlevel2-text">　Facebook：&nbsp;<a href="https://facebook.com/tsukukomafesta/" target="_blank">筑駒文化祭実行委員会</a></p>
-		</div>
-	</div>
-</main>
-<%- include("components/_footer.ejs") %>
+<% var pageName = "各種リンク", path="links" -%>
+<%- include("components/_header.ejs",{pageName:pageName,path:path}) -%>
+<%- include("components/_menu.ejs",{pageId:""}) -%>
+		<main id="main" class="main-links">
+			<h1 class="parlevel1-headline"><span><%= pageName %></span></h1>
+			<div class="parlevel1-content">
+				<h2 class="parlevel2-headline">本校公式サイト</h2>
+				<div class="parlevel2-content">
+					<p class="parlevel2-text">　筑波大学附属駒場中・高等学校の公式サイトです。入学案内や本校生徒の活動などを掲載しております。</p>
+					<p class="parlevel2-text">　リンク：<a href="http://www.komaba-s.tsukuba.ac.jp/home/" target="_blank">筑波大学附属駒場中・高等学校ポータルサイト</a></p>
+				</div>
+				<h2 class="parlevel2-headline">公式SNS</h2>
+				<div class="parlevel2-content">
+					<p class="parlevel2-text">　文化祭実行委員会の生徒が文化祭準備の光景や当日の様子をお伝えします。</p>
+					<p class="parlevel2-text">　Twitter：&nbsp;<a href="https://twitter.com/tsukukomafesta/" target="_blank">@tsukukomafesta</a></p>
+					<p class="parlevel2-text">　Facebook：&nbsp;<a href="https://facebook.com/tsukukomafesta/" target="_blank">筑駒文化祭実行委員会</a></p>
+				</div>
+			</div>
+		</main>
+<%- include("components/_footer.ejs") -%>

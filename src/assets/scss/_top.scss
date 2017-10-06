@@ -1,399 +1,10 @@
-/* mixin for skipping the top animation */
-@mixin isSkippedForce{&.is-skipped-force{transition-duration: 0s !important;transition-delay: 0s !important;}}
-
-body.body-top{
-    background-color: $baseColor;
-    @include mq{-webkit-overflow-scrolling: touch;}
-    @include mq(sm){-webkit-overflow-scrolling: touch;}
-    @include mq(md){
-        #header{display: none;}
-    }
-    @include mq(lg){
-        #header{display: none;}
-    }
-}
-
-#enter-page{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    z-index: 9500;
-    overflow: hidden;
-    font-family: $baseFont_en;
-    font-style: normal;
-    font-weight: 400;
-    background-color: $baseColor;
-    color: $baseWhite;
-    position: absolute;
-    &.is-beforeStart{display: none;}
-    // skip button
-    .enter-page__skip{
-        display: none;
-        position: absolute;
-        top:0;
-        right: 0;
-        margin: 0;
-        cursor: pointer;
-        &:hover{background-color: rgba(255,255,255,0.2);}
-        font-size: 4vw;padding: 1vw 4vw;
-        @include mq(sm){
-            font-size: 4vw;padding: 1vw 4vw;
-        }
-        @include mq(md){
-            font-size: 2vw;padding: .5vw 3vw;
-        }
-        @include mq(lg){
-            font-size: 2vw;padding: .5vw 3vw;
-        }
-    }
-    // typing animated letters
-    .enter-page__whatHappens-wrap{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: $baseColor;
-        line-height: 1;
-        z-index: 9999;
-        opacity: 1;
-        transition: 1s all ease;
-        .enter-page__whatHappens-text{opacity: 0;}
-        &.is-started,&.is-skipped-force{opacity: 0;}
-        @include isSkippedForce;
-        font-size: 5vw;
-        letter-spacing: .25vw;
-        height: calc(100% - 60px);
-        @include mq(sm){
-            font-size: 5vw;
-            letter-spacing: .25vw;
-            height: calc(100% - 60px);
-        }
-        @include mq(md){
-            font-size: 2.5vw;
-            letter-spacing: .25vw;
-            height: 100%;
-        }
-        @include mq(lg){
-            font-size: 2.5vw;
-            letter-spacing: .25vw;
-            height: 100%;
-        }
-        .cursor{
-            display: block;
-            position: absolute;
-            width: 2px;
-            height: 100%;
-            top: 0;
-            right: -5px;
-            background-color: $baseWhite;
-            animation: cursorFlash 0.5s none infinite alternate;
-            @keyframes cursorFlash{from{opacity: 1;} to{opacity: 0;}}
-        }
-    }
-    .enter-page__logo-wrap{
-        position: absolute;
-        width: 240px;
-        height: 240px;
-        transform: translate3d(0,0,0);
-        transition: 2s all ease;
-        @include isSkippedForce;
-        top: calc(50vh - 120px);
-        left: calc(50vw - 120px);
-        &.is-started,&.is-skipped-force{transform: translateY(-120px);}
-        @include mq(sm){
-            top: calc(50vh - 120px);
-            left: calc(50vw - 120px);
-            &.is-started,&.is-skipped-force{transform: translateY(-120px);}
-        }
-        @include mq(md){
-            top: calc(50vh - 120px);
-            left: calc(50vw - 120px);
-            transition: 2s all ease;
-            &.is-started,&.is-skipped-force{transform: translateY(-130px);}
-        }
-        @include mq(lg){
-            top: calc(50vh - 120px);
-            left: calc(50vw - 120px);
-            transition: 2s all ease;
-            &.is-started,&.is-skipped-force{transform: translateY(-130px);}
-        }
-    }
-    .enter-page__logo-text{
-        position: absolute;
-        width: 100vw;
-        left: 0;
-        top: calc(50vh - 10px);
-        @include mq(sm){top: calc(50vh - 20px);}
-        @include mq(md){top: calc(50vh + 10px);}
-        @include mq(lg){top: calc(50vh + 10px);}
-        .enter-page__logo-text-item{
-            position: absolute;
-            width: 100%;
-            text-align: center;
-            line-height: 1;
-            transition: 1s all ease;
-            &.enter-page__logo-text-item-1{
-                width: 100%;
-                top: -3vh;
-                line-height: 1;
-                opacity: 0;
-                transition-delay: 1.5s;
-                font-size: 80px;
-                @include mq(sm){font-size: 80px;}
-                @include mq(md){font-size: 90px;}
-                @include mq(lg){font-size: 90px;}
-                &.is-started,&.is-skipped-force{
-                    opacity: 1;
-                    transform: translateY(3vh);
-                    &::after, &::before{width: 150px;}
-                }
-                @include isSkippedForce;
-            }
-            &.enter-page__logo-text-item-2{
-                @include mq(md){
-                    position: absolute;
-                    top: 105px;
-                }
-                @include mq(lg){
-                    position: absolute;
-                    top: 95px;
-                }
-                .enter-page__logo-text-item-dec{
-                    display: block;
-                    position: absolute;
-                    width: 0;
-                    height: 2px;
-                    background-color: $baseWhite;
-                    transition: .5s all ease;
-                    transition-delay: 2s;
-                    @include isSkippedForce;
-                    @include mq{top:95px;}
-                    @include mq(sm){top:85px;}
-                    @include mq(md){top:0;}
-                    @include mq(lg){top:0;}
-                }
-                @include isSkippedForce;
-                .enter-page__logo-text-item-dec-l{right: 50vw;}
-                .enter-page__logo-text-item-dec-r{left: 50vw;}
-                &.is-started,&.is-skipped-force{
-                    .enter-page__logo-text-item-dec{
-                        @include mq{width: 140px;}
-                        @include mq(sm){width: 140px;}
-                        @include mq(md){width: 150px;}
-                        @include mq(lg){width: 150px;}
-                    }
-                }
-                @include isSkippedForce;
-            }
-            &.enter-page__logo-text-item-3{
-                line-height: 1;
-                opacity: 0;
-                transition-delay: 2.5s;
-                &.is-started,&.is-skipped-force{opacity: 1;transform: translateY(3vh);}
-                @include isSkippedForce;
-                top: 100px;
-                font-size: 20px;
-                @include mq(sm){
-                    top: 90px;
-                    font-size: 20px;
-                }
-                @include mq(md){
-                    top: 95px;
-                    font-size: 25px;
-                }
-                @include mq(lg){
-                    top: 95px;
-                    font-size: 25px;
-                }
-            }
-        }
-    }
-    // main logo animation
-    .enter-page__logo{
-        position: absolute;
-        width: 240px !important;
-        height: 240px !important;
-        top: 0;
-        @include mq{top: -20px;}
-        @include mq(sm){top: -30px;}
-        left: 0;
-        background-color: transparent;
-        z-index: 9000;
-        transition: 2s all ease-in-out;
-        &.is-beforeStart{display: none;}
-        &.is-started,&.is-skipped-force{transform: rotate(360deg);}
-        @include isSkippedForce;
-        .baseCircle{
-            cx: 120px;
-            cy: 120px;
-            r: 120px;
-            transform: rotate(-90deg);
-            transform-origin: 50% 50%;
-            fill: $baseWhite;
-            fill-opacity: 0;
-            stroke: $baseWhite;
-            stroke-width: 1px;
-            stroke-dasharray: 0 755;
-            transition: 1.5s all ease;
-            &.is-started,&.is-skipped-force{stroke-dasharray: 755 755;}
-            &.is-started-2,&.is-skipped-force{fill-opacity: 1;}
-            @include isSkippedForce;
-        }
-        $baselength: 19.8675;
-        .rect{
-            position: relative;
-            x: #{120 - $baselength * 2.5}px;
-            y: #{120 - $baselength * 5.5}px;
-            width: #{$baselength * 5}px;
-            height: #{$baselength * 5}px;
-            transform-origin: 50% 110%;
-            fill: $baseColor;
-            fill-opacity: 0;
-            stroke: $baseWhite;
-            stroke-width: 1px;
-            stroke-dasharray: 0 400;
-            transition: 1.6s all linear;
-            &.is-started,&.is-skipped-force{stroke-dasharray: 400 400;}
-            &.is-started-2,&.is-skipped-force{fill-opacity: 1;}
-            @include isSkippedForce;
-        }
-            @for $i from 1 through 6{
-                .rect#{$i}{
-                    transform: rotate(#{30 + 60 * ($i - 1)}deg);
-                    transition-delay: #{1.5 + 0.4 * $i}s;
-                    &.is-delayOff,&.is-skipped-force{transition-delay: .5s !important;transition-duration: 1s;}
-                    @include isSkippedForce;
-                }
-            }
-        @mixin isStartedItems{transition: 1s all ease;transition-delay: .5s;} /* define mini item's animation */
-        .tri{
-            fill: $baseWhite;
-            fill-opacity: 0;
-            @include isStartedItems;
-            &.is-started,&.is-skipped-force{fill-opacity: 1;}
-            @include isSkippedForce;
-        }
-        .hex{
-            fill: $baseColor;
-            fill-opacity: 0;
-            @include isStartedItems;
-            &.is-started,&.is-skipped-force{fill-opacity: 1;}
-            @include isSkippedForce;
-        }
-        .rect-m{
-            x: 110.5px;
-            y: 70px;
-            width: 19px;
-            height: 100px;
-            transform-origin: 50% 50%;
-            fill: $baseWhite;
-            fill-opacity: 0;
-            @include isStartedItems;
-            &.is-started,&.is-skipped-force{fill-opacity: 1;}
-            @include isSkippedForce;
-        }
-        @for $i from 1 through 6{
-            .rect-m#{$i}{transform: rotate(#{60 * ($i - 1)}deg);}
-        }
-        .tri-m{
-            position: relative;
-            transform-origin: 100% 150%;
-            fill: $baseColor;
-            fill-opacity: 0;
-            @include isStartedItems;
-            &.is-started,&.is-skipped-force{fill-opacity: 1;}
-            @include isSkippedForce;
-        }
-        @for $i from 1 through 6{
-            .tri-m#{$i}{transform: rotate(#{60 * ($i - 1)}deg);}
-        }
-    }
-
-
-    .enter-page__button{
-        display: block;
-        position: absolute;
-        width: 80px;
-        height: 80px;
-        opacity: 0;
-        transition-delay: 4s;
-        @include mq{
-            -webkit-tap-highlight-color: rgba(0,0,0,0);
-            top: calc(50vh + 150px);
-            left: calc(50vw - 40px);
-        }
-        @include mq(sm){
-            -webkit-tap-highlight-color: rgba(0,0,0,0);
-            top: calc(50vh + 140px);
-            left: calc(50vw - 40px);
-        }
-        @include mq(md){
-            top: calc(50vh + 180px);
-            left: calc(50vw - 40px);
-        }
-        @include mq(lg){
-            top: calc(50vh + 250px);
-            left: calc(50vw - 40px);
-        }
-        .enter-page__button__item{
-            position: absolute;
-            border: solid 1px $baseWhite;
-            border-radius: 100%;
-            transition: .5s all ease;
-            &:first-of-type{
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                animation: expandCircle 1s ease infinite normal running;
-            }
-            &:nth-of-type(2){
-                top: 10%;
-                left: 10%;
-                width: 80%;
-                height: 80%;
-                animation: expandCircle 1s ease infinite normal running;
-            }
-        }
-        @keyframes expandCircle{
-            from{transform: scale(0.8,0.8);opacity: 1;}
-            to{transform: scale(1.2,1.2);opacity: 0;}
-        }
-        &.is-started,&.is-skipped-force{
-            opacity: 1;
-            &:hover{
-                cursor:pointer;
-                &>.enter-page__button__item{
-                    &:first-of-type{display: none;}
-                    &:nth-of-type(2){
-                        transoform: scale(1.2,1.2);
-                        background-color: darken($baseColor,10%);
-                    }
-                }
-            }
-        }
-        @include isSkippedForce;
-    }
-}
-
-
-
 .index-bg{
     position: fixed;
     width: 100vw;
     height: 100vh;
     top: 0;
-    left: 0;
+	left: 0;
+	border: none;
     display: flex;
     flex-flow: row wrap;
     overflow: hidden;
@@ -464,17 +75,18 @@ body.body-top{
     }
 }
 #main.main-index{
+	position: relative;
     display: block;
     width: 100vw;
     min-height: 100vh;
     margin-left: 0;
     padding-top: 0;
-    overflow-y: scroll;
+	overflow-y: scroll;
     @include disactivateLinkColors;
     &.is-beforeStart{display: none;}
     .top-content{
         position: absolute;
-        width: 100vw;
+		width: 100vw;
         top: 0;
         left: 0;
 		padding-bottom: 3vw;
@@ -489,7 +101,7 @@ body.body-top{
             padding-top: 5vw;
             padding-bottom: 5vw;
             box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.4);
-            text-align: center;
+			text-align: center;
             @include mq(sm){
                 margin-top: 12.5vw;
                 height: calc(100vh - 12.5vw);
@@ -551,7 +163,8 @@ body.body-top{
                 .top-welcome__text{
                     position: relative;
                     line-height: 1;
-                    font-size: 4vw;
+					font-size: 4vw;
+					font-weight: 400;
                     color: $baseWhite;
                     @include mq(sm){font-size: 3.34vw;}
                     @include mq(md){
