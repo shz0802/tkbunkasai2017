@@ -101,20 +101,34 @@ function loadStyleSheet(){
 	head.appendChild(link);
 }
 
+var timeoutId,scrolling = false;
+function isScrolling(){
+	$("#main").on("touchmove scroll",function(){
+		scrolling = true;
+		clearTimeout(timeoutId);
+		timeoutId = setTimeout( function () {
+			scrolling = false;
+		}, 500 ) ;
+	});
+}
 function topBgAnimation(){
 	setInterval(function(){
 		var changes = [];
 		for(var i=1;i<=1000;i++){
-			if(Math.random()<0.1){changes.push(i);}
+			if(Math.random()<0.3){changes.push(i);}
 		}
 		changes.forEach(function(num){
-			var obj = $(".index-bg-"+num), duration = 500+Math.random()*(1000);
-			obj.fadeOut(duration,function(){
-				obj.attr("src","assets/img/bg-"+ (1+Math.floor(Math.random()*(40))) +".svg");
-			});
-			obj.fadeIn(duration);
-		})
-	},1000);
+			if(scrolling===false){
+				var obj = $(".index-bg-element-"+num), duration= 1500, delay = Math.random()*1000;
+				obj.delay(delay).queue(function(){
+					$(this).addClass("is-hidden").dequeue();
+				}).delay(duration).queue(function(){
+					$("img",this).attr("src","assets/img/bg-"+ (1+Math.floor(Math.random()*(40))) +".svg");
+					$(this).removeClass("is-hidden").dequeue();	
+				});
+			}
+		});
+	},3000);
 }
 
 // set loader
@@ -122,10 +136,11 @@ $("#loader, #enter-page").addClass("is-beforeStart");
 $("#loader").css("display","flex")
 // onload
 $(function(){
+	isScrolling();
 	// set bg
 	date = new Date();
 	for(var i=1;i<=10000;i++){
-		$(".index-bg-"+i).attr("src","assets/img/bg-"+ (1+Math.floor(Math.random()*(40))) +".svg?timestamp="+date.getTime());
+		$(".index-bg-element-"+i+" img").attr("src","assets/img/bg-"+ (1+Math.floor(Math.random()*(40))) +".svg?timestamp="+date.getTime());
 	}
 
 	// set menu transition

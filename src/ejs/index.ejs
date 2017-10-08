@@ -50,7 +50,7 @@
 			</div>
 		</div>
 		<div class="index-bg">
-				<% for(var i = 1; i<=1000;i++){ %><img class="index-bg-<%= i %>"> <% } %></div>		
+				<% for(var i = 1; i<=1000;i++){ %><div class="index-bg-element index-bg-element-<%= i %>"><img></div><% } %></div>
 		<%- include("components/_menu.ejs",{pageId:"index"}) -%>
 		<main id="main" class="main-index">
 			<div class="top-content">
@@ -63,7 +63,7 @@
 					</div>
 					<div class="top-welcome__countdown">
 						<p class="top-welcome__countdown__text">文化祭まで</p>
-						<p class="top-welcome__countdown__text">あと<span class="top-welcome__countdown__days-left">28</span>日</p>
+						<p class="top-welcome__countdown__text">あと<span class="top-welcome__countdown__days-left">25</span>日</p>
 					</div>
 				</div>
 				<div class="top-content__item top-content__item-latest-news">

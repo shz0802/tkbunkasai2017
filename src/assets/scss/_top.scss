@@ -11,15 +11,29 @@
     transition: .5s all ease;
     opacity: 1;
     &.is-beforeStart{opacity: 0;}
-    img{width: 10vw;height: 10vw;}
-    @include mq(md){img{width: 5vw;height: 5vw;}}
-    @include mq(lg){img{width: 5vw;height: 5vw;}}
+    .index-bg-element{
+		position: relative;
+		width: 10vw;
+		height: 10vw;
+		img{width: 100%;height: 100%;}
+		@include mq(md){
+			width: 5vw;
+			height: 5vw;
+		}
+		@include mq(lg){
+			width: 5vw;
+			height: 5vw;
+		}
+		opacity: 1;
+		transition: 1.5s all ease;
+		&.is-hidden{opacity: 0;}
+	}
     &::after{
         content: "";
         display: block;
         position: fixed;
         z-index: 4000;
-        background-color: rgba(251,251,246,.1);
+        background-color: rgba(251,251,246,.15);
         width: 100vw;
         height: 100vh;
     }
@@ -109,7 +123,7 @@
                 padding-bottom: 5vw;
             }
             @include mq(md){
-                background-color: rgba(0,0,0,0.7);
+                background-color: rgba(0,0,0,0.75);
                 display: flex;
                 flex-flow: row wrap;
                 justify-content: space-around;
@@ -119,7 +133,7 @@
                 padding-bottom: 0;
             }
             @include mq(lg){
-                background-color: rgba(0,0,0,0.7);
+                background-color: rgba(0,0,0,0.75);
                 display: flex;
                 flex-flow: row wrap;
                 justify-content: space-around;
