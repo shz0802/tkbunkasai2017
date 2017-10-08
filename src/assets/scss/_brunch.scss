@@ -369,4 +369,58 @@
 }
 .main-student{
 	.parlevel1-headline{span::after, span::before{background-color: gray;}}
+	.parlevel2-content{
+		@include mq(md){ul{padding-left: 1vw;margin-left: 0;}}
+		@include mq(lg){ul{padding-left: .75vw;margin-left: 0;}}
+		li{
+			position: relative;
+			line-height: 8vw;
+			padding-left: 8vw;
+			@include mq(sm){
+				line-height: 6.5vw;
+				padding-left: 6.5vw;
+			}
+			@include mq(md){
+				line-height: 3vw;
+				padding-left: 2.5vw;
+			}
+			@include mq(lg){
+				line-height: 2.5vw;
+				padding-left: 1.75vw;
+			}
+		}
+		li::before{
+			content: "";
+			display: inline-block;
+			position: absolute;
+			width: 6vw;
+			height: 6vw;
+			top: 1vw;
+			left: .5vw;
+			background-size: cover;
+			background-repeat: no-repeat;
+			@include mq(sm){
+				width: 3.5vw;
+				height: 3.5vw;
+				top: 1.5vw;
+				left: 1.5vw;
+			}
+			@include mq(md){
+				width: 2vw;
+				height: 2vw;
+				top: .5vw;
+				left: -.25vw;
+			}
+			@include mq(lg){
+				width: 1.5vw;
+				height: 1.5vw;
+				top: .5vw;
+				left: -.25vw;
+			}
+		}
+		$fileTypes: png,ai,doc,pdf,zip;
+		@each $type in $fileTypes{
+			[data-file-type="#{$type}"]::before{background-image: url(../img/icons/#{$type}.svg);}
+		}
+	}
 }
