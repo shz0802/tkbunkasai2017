@@ -29,7 +29,9 @@
 		&.is-hidden{opacity: 0;}
 	}
     &::after{
-        content: "";
+		content: "";
+		top: 0;
+    	left: 0;
         display: block;
         position: fixed;
         z-index: 4000;

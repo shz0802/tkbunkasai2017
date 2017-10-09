@@ -81,6 +81,7 @@ $baseFont_en: "orator-std";
 @mixin disactivateLinkColors{
 	& a:link, a:visited, a:hover, a:active{color: $baseWhite;}
 }
+body,html{height: 100%;}
 
 @import "common";
 @import "base";
@@ -88,6 +89,7 @@ $baseFont_en: "orator-std";
 @import "brunch";
 @import "blog";
 @import "loader";
+@import "groups";
 @import url('//use.fontawesome.com/releases/v4.7.0/css/font-awesome-css.min.css');@font-face{font-family:'FontAwesome';src:url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.eot');src:url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
 	url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'),
 	url('//use.fontawesome.com/releases/v4.7.0/fonts/fontawesome-webfont.woff') format('woff'),

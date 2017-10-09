@@ -7,7 +7,12 @@ var notify = require("gulp-notify");
 var browserSync = require('browser-sync');
 var ejs = require("gulp-ejs");
 var rename = require("gulp-rename");
+<<<<<<< HEAD
 var uglify = require("gulp-uglify");
+=======
+var fs = require('fs');
+var jsonData = JSON.parse(fs.readFileSync("./src/assets/json/data.json","utf8"));
+>>>>>>> development
 
 gulp.task('scss', function() {
   gulp.src(["src/assets/scss/**/*.scss","!src/assets/scss/**/_*.scss"])
@@ -40,7 +45,7 @@ gulp.task("ejs",function(){
         .pipe(plumber({
             errorHandler: notify.onError("<%= error.message %>")
         }))
-        .pipe(ejs())
+        .pipe(ejs({jsonData:jsonData}))
         .pipe(rename({extname:".html"}))
         .pipe(gulp.dest("src/"));
 });
@@ -58,6 +63,7 @@ gulp.task("default",["browser-sync"], function() {
 	gulp.watch("src/ejs/**/*.ejs", ['ejs']);
 	gulp.watch("src/assets/js/*.js", ['js']);
     gulp.watch("src/**/*.html", ['bs-reload']);
-    gulp.watch("src/assets/js/*.js", ['bs-reload']);
-    gulp.watch("src/assets/css/*.css", ['bs-reload']);
+    gulp.watch("src/**/*.css", ['bs-reload']);
+	gulp.watch("src/**/*.js", ['bs-reload']);
+	gulp.watch("src/**/*.json", ['ejs']);
 });
