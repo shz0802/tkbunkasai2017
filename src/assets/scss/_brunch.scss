@@ -383,3 +383,33 @@
 .main-student{
 	.parlevel1-headline{span::after, span::before{background-color: gray;}}
 }
+
+// development
+@include mq(md){
+	.content-tab-trigger{
+		position: absolute;
+		box-sizing: border-box;
+		top:0;
+		text-align: center;
+		border-top: 1px solid rgba(0,0,0,0.6);
+		border-left: 1px solid rgba(0,0,0,0.6);
+		border-bottom: 1px solid rgba(0,0,0,0.6);
+		z-index: 1000;
+		cursor: pointer;
+		h2{
+			line-height: 2;
+			font-size: 1.5vw;
+		}
+		&.tab-last{border-right: 1px solid rgba(0,0,0,0.6);}
+		&:hover{
+			background-color: rgba(0,0,0,0.2);
+		}
+	}
+	.content-tab{
+		display: none;
+		position: relative;
+		top:  calc(3vw + 2px);
+		z-index: 1000;
+		&.content-tab-open{display: block !important;z-index: 2000;}
+	}
+}

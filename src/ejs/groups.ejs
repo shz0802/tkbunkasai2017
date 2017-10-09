@@ -7,7 +7,7 @@
 		<div class="deco-search-box">
 			<input type="text" class="deco-search-box__input" placeholder="団体名で検索">
 			<div class="deco-search-result">
-				<ul class="deco-search-result__list">					
+				<ul class="deco-search-result__list">
 					<%
 						var decoList = jsonData[0].decoDeta;
 						decoList.forEach(function(deco,num){
@@ -30,9 +30,35 @@
 				var decoList = jsonData[0].decoDeta;
 				decoList.forEach(function(deco,num){
 			%>
-			<% if(num == 0){%><div class="deco-list"><h2 class="parlevel2-headline-single groups-headline">展示</h2><div class="groups-headline-trigger"  data-deco-list-trigger-num="1"><i class="fa fa-chevron-down" aria-hidden="true"></i></div><ul data-deco-list-num="1"><%}%>
-			<% if(num == 17){%></ul></div><div class="deco-list"><h2 class="parlevel2-headline-single groups-headline">演劇</h2><div class="groups-headline-trigger" data-deco-list-trigger-num="2"><i class="fa fa-chevron-down" aria-hidden="true"></i></div><ul data-deco-list-num="2"><%}%>
-			<% if(num == 28){%></ul></div><div class="deco-list"><h2 class="parlevel2-headline-single groups-headline">パフォーマンス・その他</h2><div class="groups-headline-trigger" data-deco-list-trigger-num="3"><i class="fa fa-chevron-down" aria-hidden="true"></i></div><ul data-deco-list-num="3"><%}%>
+			<% if(num == 0){%>
+				<div class="deco-list">
+					<div class="deco-list-desc-show"></div>
+					<div class="content-tab-trigger" data-tab-trigger-num="1">
+						<h2 class="parlevel2-headline-single groups-headline">展示</h2>
+						<div class="groups-headline-trigger" data-deco-list-trigger-num="1"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+					</div>
+					<ul class="content-tab content-tab-open" data-tab-num="1" data-deco-list-num="1"><%}%>
+			<% if(num == 17){%>
+					</ul>
+				</div>
+				<div class="deco-list">
+					<div class="deco-list-desc-show"></div>
+					<div class="content-tab-trigger" data-tab-trigger-num="2">
+						<h2 class="parlevel2-headline-single groups-headline">演劇</h2>
+						<div class="groups-headline-trigger" data-deco-list-trigger-num="2"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+					</div>
+					<ul class="content-tab" data-tab-num="2" data-deco-list-num="2"><%}%>
+			<% if(num == 28){%>
+					</ul>
+				</div>
+				<div class="deco-list">
+					<div class="deco-list-desc-show"></div>
+					<div class="content-tab-trigger" data-tab-trigger-num="3">
+						<h2 class="parlevel2-headline-single groups-headline">パフォーマンス・その他</h2>
+						<div class="groups-headline-trigger" data-deco-list-trigger-num="3"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+					</div>
+					<ul class="content-tab" data-tab-num="3" data-deco-list-num="3">
+			<%}%>
 			<li class="deco-list__item" data-deco-num="<%= num %>">
 				<img class="deco-img" src="http://placehold.jp/200x150.png"/>
 				<img class="deco-icon" src="assets/img/deco-icons/deco-icon_<%= deco.decoName %>.svg"/>
