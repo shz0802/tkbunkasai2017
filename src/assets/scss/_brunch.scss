@@ -58,13 +58,23 @@
 	position: relative;
 	margin-bottom: 5vw;
 	.parlevel1-text{
-		width: 100%;
-		text-align: center;
-		font-size: 6vw;
-		font-style: italic;
-		font-weight: normal;
-		@include mq(md){font-size: 3vw;}
-		@include mq(lg){font-size: 3vw;}
+		width: 90%;
+		margin-top: 0;
+		margin-bottom: 1.5vw;
+		margin-left: 5%;
+		font-size: 4vw;
+		@include mq(sm){
+			margin-bottom: 1.5vw;
+			font-size: 3vw;
+		}
+		@include mq(md){
+			margin-bottom: .25vw;
+			font-size: 1.2vw;
+		}
+		@include mq(lg){
+			margin-bottom: .25vw;
+			font-size: 1.2vw;
+		}
 	}
 }
 
@@ -141,16 +151,61 @@
 	@include mq(sm){margin: 3vw 5vw 0;}
 	@include mq(md){width: 90%; margin: 1.5vw 5% 0;}
 	@include mq(lg){width: 90%; margin: 1.25vw 5% 0;}
-	ul{
+	.parlevel2-ul{
 		padding: 0;
-		li{&::before{content:"・"}}
-		@include mq(md){
-			margin: 0 5vw 0;
-			li{line-height: 2;}
+		.parlevel2-li{
+			position: relative;
+			line-height: 8vw;
+			font-size: 4vw;
+			.parlevel2-ul-text{padding-left: 8vw;margin-top: 2vw;margin-bottom: 1vw;}
+			@include mq(sm){
+				line-height: 6.5vw;
+				font-size: 3vw;
+				.parlevel2-ul-text{padding-left: 6vw;margin-top: 2vw;margin-bottom: 1.5vw;}
+			}
+			@include mq(md){
+				line-height: 3vw;
+				font-size: 1.25vw;
+				.parlevel2-ul-text{padding-left: 3.25vw;margin-top: 1vw;margin-bottom: .5vw;}
+			}
+			@include mq(lg){
+				line-height: 2.5vw;
+				font-size: 1.25vw;
+				.parlevel2-ul-text{padding-left: 2.65vw;margin-top: 1vw;margin-bottom: .25vw;}
+			}
 		}
-		@include mq(lg){
-			margin: 0 5vw 0;
-			li{line-height: 2;}
+		li::before{
+			content: "";
+			display: inline-block;
+			position: absolute;
+			width: 6vw;
+			height: 6vw;
+			top: 1vw;
+			left: .5vw;
+			background-size: cover;
+			background-repeat: no-repeat;
+			@include mq(sm){
+				width: 3.5vw;
+				height: 3.5vw;
+				top: 1.5vw;
+				left: 1.2vw;
+			}
+			@include mq(md){
+				width: 2vw;
+				height: 2vw;
+				top: .5vw;
+				left: .7vw;
+			}
+			@include mq(lg){
+				width: 1.5vw;
+				height: 1.5vw;
+				top: .5vw;
+				left: .6vw;
+			}
+		}
+		$fileTypes: png,ai,doc,pdf,zip;
+		@each $type in $fileTypes{
+			[data-file-type="#{$type}"]::before{background-image: url(../img/icons/#{$type}.svg);}
 		}
 	}
 	.parlevel2-text{
@@ -369,58 +424,52 @@
 }
 .main-student{
 	.parlevel1-headline{span::after, span::before{background-color: gray;}}
+}
+.main-download{
+	.parlevel1-headline{span::after, span::before{background-color: #f6ad49;}}
 	.parlevel2-content{
-		@include mq(md){ul{padding-left: 1vw;margin-left: 0;}}
-		@include mq(lg){ul{padding-left: .75vw;margin-left: 0;}}
-		li{
-			position: relative;
-			line-height: 8vw;
-			padding-left: 8vw;
-			@include mq(sm){
-				line-height: 6.5vw;
-				padding-left: 6.5vw;
+		.parlevel2-ul{
+			.parlevel2-li{
+				a{
+					display: block;
+					-webkit-tap-highlight-color: rgba(228,0,127,0.2);
+					img{width: 100%;}
+				}
+				.img-horizontal{
+					width: 80%;
+					margin-left: 10%;
+				}
+				.img-vertical{
+					width: 30%;
+					margin-left: 35%;
+				}
+				@include mq(sm){
+					.img-horizontal{
+						width: 70%;
+						margin-left: 15%;
+					}
+				}
+				@include mq(md){
+					.img-horizontal{
+						width: 40%;
+						margin-left: 3.25vw;
+					}
+					.img-vertical{
+						width: 15%;
+						margin-left: 3.25vw;
+					}
+				}
+				@include mq(lg){
+					.img-horizontal{
+						width: 30%;
+						margin-left: 2.65vw;
+					}
+					.img-vertical{
+						width: 10%;
+						margin-left: 2.65vw;
+					}
+				}
 			}
-			@include mq(md){
-				line-height: 3vw;
-				padding-left: 2.5vw;
-			}
-			@include mq(lg){
-				line-height: 2.5vw;
-				padding-left: 1.75vw;
-			}
-		}
-		li::before{
-			content: "";
-			display: inline-block;
-			position: absolute;
-			width: 6vw;
-			height: 6vw;
-			top: 1vw;
-			left: .5vw;
-			background-size: cover;
-			background-repeat: no-repeat;
-			@include mq(sm){
-				width: 3.5vw;
-				height: 3.5vw;
-				top: 1.5vw;
-				left: 1.5vw;
-			}
-			@include mq(md){
-				width: 2vw;
-				height: 2vw;
-				top: .5vw;
-				left: -.25vw;
-			}
-			@include mq(lg){
-				width: 1.5vw;
-				height: 1.5vw;
-				top: .5vw;
-				left: -.25vw;
-			}
-		}
-		$fileTypes: png,ai,doc,pdf,zip;
-		@each $type in $fileTypes{
-			[data-file-type="#{$type}"]::before{background-image: url(../img/icons/#{$type}.svg);}
 		}
 	}
 }

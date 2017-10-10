@@ -39,47 +39,47 @@ body{
 body{background-color: $baseWhite;font-family: $baseFont_jp;}
 
 
-// peculoar to smph
+// only in touch device
 #smph-pagecover{
     display: none;
-    opacity: 0;
     position: fixed;
-    z-index: 1000;
+    z-index: 0;
     width: 100vw;
     height: 100vh;
     top: 0;
-    left: 0;
-	background-color: transparent;
-	&.is-started{
+	transform: translateX(0);
+	background-color: rgba(0,0,0,0.4);
+	transition:0.5s transform ease-in-out;
+    &.is-opened{
 		display: block;
-		transition:0.5s all ease-in-out;
+		animation: isOpened .5s ease-in-out 0s;
 		@include mq(md){display: none;}
 		@include mq(lg){display: none;}
+		z-index: 3000;
 	}
-    &.is-opened{
-        opacity: 1;
-        transform: translateX(75vw);
-        @include mq(sm){transform: translateX(60vw);}
-        z-index: 3000;
-        background-color: rgba(0,0,0,0.4);
-    }
+	@keyframes isOpened{
+		from{opacity: 0;transform: translateX(0);}
+		to{opacity: 1;transform: translateX(75vw);}
+	}
+	@include mq(sm){
+		@keyframes isOpened{
+			from{opacity: 0;transform: translateX(0);}
+			to{opacity: 1;transform: translateX(60vw);}
+		}
+	}
 }
 #smph-header{
-	display: none;
-    position: fixed;
+	position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 17.5vw;
+	height: 17.5vw;
+	@include mq(sm){height: 12.5vw;}
+	@include mq(md){display: none;}
+	@include mq(lg){display: none;}
     background-color: $baseColor;
     box-shadow: 0 0 5px 5px rgba(0,0,0,0.2);
-    @include mq(sm){height: 12.5vw;}
-	&.is-started{
-		display: block;
-		transition:0.5s all ease-in-out;
-		@include mq(md){display: none;}
-		@include mq(lg){display: none;}
-	}
+	transition: 0.5s transform ease-in-out;
     &.is-opened{
         background-color: darken($baseColor, 10%);
         transform: translateX(75vw);
@@ -199,30 +199,23 @@ body{background-color: $baseWhite;font-family: $baseFont_jp;}
         height: 100vh;
     }
     #header-menu{
-		display: none;
         position: absolute;
         height: 100vh;
-        top:0;
-        left: 0;
+		top:0;
+		transition:0.5s transform ease-in-out;
+		@include mq{width: 75vw;left:-75vw;}
+		@include mq(sm){width: 60vw;left:-60vw;}
         background-color: $baseColor;
         z-index: 9000;
         overflow-x: hidden;
         overflow-y: auto;
         -webkit-overflow-scrolling:touch;
         @include disactivateLinkColors;
-		&.is-opened{transform: translateX(0);box-shadow: 0 0 10px 10px rgba(0,0,0,0.3);}
-		&.is-started{
-			display: block !important;
-			transition:0.5s all ease-in-out;
+		&.is-opened{
+			@include mq{transform: translateX(75vw)};
+			@include mq(sm){transform: translateX(60vw);}
+			box-shadow: 0 0 10px 10px rgba(0,0,0,0.3);
 		}
-        @include mq{
-            transform: translateX(-75vw);
-            width: 75vw;
-        }
-        @include mq(sm){
-            transform: translateX(-60vw);
-            width: 60vw;
-        }
         @include mq(md){
             position: relative;
             width: 100%;

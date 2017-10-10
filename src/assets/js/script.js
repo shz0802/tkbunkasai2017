@@ -102,9 +102,6 @@ $(function(){
 		$(".index-bg-element-"+i+" img").attr("src","assets/img/bg-"+ (1+Math.floor(Math.random()*(40))) +".svg?timestamp="+date.getTime());
 	}
 
-	// set menu transition
-	$("#smph-header,#header-menu,#smph-pagecover").addClass("is-started");
-
 	// hide the loader
 	setTimeout(function(){
 		$("#loader").removeClass("is-beforeStart"); // loader hide animation
@@ -557,6 +554,7 @@ $(function(){
 			toggleDecoModal(onModalScrollTop);
 		});
 	}else{
+		$(".downloadParlevel1Text-replacable").text("画像をクリックするとダウンロードできます。");
 		$(".content-tab").fadeOut(0);
 		tabNum = $(".content-tab-trigger").length;
 		tabTriggerWidth = $(".content-tab-trigger").parent().innerWidth()/tabNum;

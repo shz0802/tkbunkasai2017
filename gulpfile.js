@@ -7,12 +7,9 @@ var notify = require("gulp-notify");
 var browserSync = require('browser-sync');
 var ejs = require("gulp-ejs");
 var rename = require("gulp-rename");
-<<<<<<< HEAD
 var uglify = require("gulp-uglify");
-=======
 var fs = require('fs');
 var jsonData = JSON.parse(fs.readFileSync("./src/assets/json/data.json","utf8"));
->>>>>>> development
 
 gulp.task('scss', function() {
   gulp.src(["src/assets/scss/**/*.scss","!src/assets/scss/**/_*.scss"])
