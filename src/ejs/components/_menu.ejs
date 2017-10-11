@@ -8,7 +8,7 @@
 					<span></span>
 				</div>
 				<p class="smph-header__txt">MENU</p>
-				<div class="smph-header__logo"><a href="/" class="touchItem"><img src="assets/img/header-logo-smph.png?timestamp=<%= date.getTime() %>" alt='第66回筑駒文化祭"Dice!"ロゴ(大)'></a></div>
+				<div class="smph-header__logo"><a href="/"><img src="assets/img/header-logo-smph.png?timestamp=<%= date.getTime() %>" alt='第66回筑駒文化祭"Dice!"ロゴ(大)'></a></div>
 			</div>
 			<nav id="header-menu" class="menu">
 				<div class="header-menu__logo"><img src="assets/img/menu-logo.svg?timestamp=<%= date.getTime() %>" alt='第66回筑駒文化祭"Dice!"ロゴ(小)'></div>
@@ -22,7 +22,7 @@
 					}
 					menuItems.forEach(function(item,count){
 					var currentPage = (item["key"]==pageId)?true:false;	-%>
-					<li class="header-menu__item header-menu__item-<%= count+1 %> <% if(currentPage){ -%>is-current<%}-%> touchItem">
+					<li class="header-menu__item header-menu__item-<%= count+1 %> <% if(currentPage){ -%>is-current<%}-%>">
 						<div class="header-menu__item__element shown <% if(currentPage){%>is-hidden<%}%>">
 							<% if(currentPage){ -%><%= item["disc"] -%><%}else{-%><a href="<%if(item['key']=='index'){ %><%= '/' %><%}else{%><%= item['key'] %><%}%>"><%= item["disc"] %></a><%}%>
 						</div>

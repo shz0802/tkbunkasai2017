@@ -407,9 +407,11 @@
             		&:last-of-type{border: none;}
             		a{
             			display:block;width:100%;height:100%;
-            			position:absolute;top:0;left:0;
-            			z-index: 3000;
-            			&:hover{background-color: rgba(0,0,0,0.1);}
+						position:absolute;top:0;left:0;
+						z-index: 3000;
+						&.is-hovered{background-color: rgba(0,0,0,0.1);}
+						@include mq(md){&:hover{background-color: rgba(0,0,0,0.1);}}
+						@include mq(lg){&:hover{background-color: rgba(0,0,0,0.1);}}
             		}
                     .top-grand-menu__item__title{
                         font-family: $baseFont_en;

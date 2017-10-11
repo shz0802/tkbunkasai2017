@@ -79,7 +79,7 @@ $baseWhite: lighten(#f7f6eb,2.5%);
 $baseFont_jp: "Noto Sans Japanese";
 $baseFont_en: "orator-std";
 @mixin disactivateLinkColors{
-	& a:link, a:visited, a:hover, a:active{color: $baseWhite;}
+	
 }
 body,html{height: 100%;}
 

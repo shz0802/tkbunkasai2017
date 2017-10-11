@@ -26,9 +26,6 @@ body{
     }
 }
 
-//touch
-.touchItem.touch{background-color: darken($baseColor,5%);}
-
 #container{
     position:relative;
     width: 100%;
@@ -257,7 +254,6 @@ body{background-color: $baseWhite;font-family: $baseFont_jp;}
             @include mq(lg){margin-top:1vw;margin-bottom:.5vw;}
         }
         .header-menu__list{
-            @include disactivateLinkColors;
             position: relative;
             width: 100%;
             margin: 0;
@@ -387,15 +383,36 @@ body{background-color: $baseWhite;font-family: $baseFont_jp;}
                         }
                     }
                 }
-                &:hover{background-color: darken($baseColor,3%);}
-                a{display: block;width: 100%;height: 100%;}
+                a{
+					text-decoration: none;
+					display: block;width: 100%;height: 100%;
+					&:link,&:visited{color: $baseWhite;}
+					&.is-hovered{background-color: darken($baseColor,5%);}
+					&:hover{
+						@include mq(md){background-color: darken($baseColor,5%);}
+						@include mq(lg){background-color: darken($baseColor,5%);}
+					}
+					&:active{color: $baseWhite;}
+				}
             }
             .header-menu-sm{
-                @include disactivateLinkColors;
                 padding: 0;
                 margin-top: 5vw;
                 margin-left: 10%;
-                text-decoration: underline;
+				a{
+					&:link{text-decoration: none;color: $baseWhite;}
+					&:visited{color: $baseWhite;}
+					&:hover{
+						color: $baseWhite;
+						&.is-hovered{text-decoration: underline}
+						@include mq(md){text-decoration: underline;}
+						@include mq(lg){text-decoration: underline;}
+					}
+					&:active{
+						color: $baseWhite;
+						text-decoration: underline;
+					}
+				}
                 .header-menu-sm__item{
                     font-size: 3.75vw;
                     margin-top: 2vw;
@@ -466,7 +483,6 @@ body{background-color: $baseWhite;font-family: $baseFont_jp;}
                     position: relative;
                     width: 12.5vw;
                     height: 12.5vw;
-                    border-radius: 1vw;
                     background-color: $baseColor;
                     color: $baseWhite;
                     display: flex;
@@ -475,7 +491,8 @@ body{background-color: $baseWhite;font-family: $baseFont_jp;}
                     cursor: pointer;
                     &.twitter i{font-size: 9.5vw;}
                     &.facebook i{font-size: 8.5vw;}
-                    &.googleplus i{font-size: 7.5vw;}
+					&.googleplus i{font-size: 7.5vw;}
+					&.is-hovered{background-color: darken($baseColor,5%);}
                     @include mq(sm){
                         width: 8vw;
                         height: 8vw;
@@ -484,18 +501,20 @@ body{background-color: $baseWhite;font-family: $baseFont_jp;}
                         &.googleplus i{font-size: 5vw;}
                     }
                     @include mq(md){
-                        width: 3vw;
-                        height: 3vw;
+                        width: 4vw;
+                        height: 4vw;
                         &.twitter i{font-size: 2.5vw;}
                         &.facebook i{font-size: 2.25vw;}
-                        &.googleplus i{font-size: 2vw;}
+						&.googleplus i{font-size: 2vw;}
+						&:hover{background-color: darken($baseColor,5%);}
                     }
                     @include mq(lg){
-                        width: 2vw;
-                        height: 2vw;
+                        width: 3vw;
+                        height: 3vw;
                         &.twitter i{font-size: 2vw;}
                         &.facebook i{font-size: 1.75vw;}
-                        &.googleplus i{font-size: 1.5vw;}
+						&.googleplus i{font-size: 1.5vw;}
+						&:hover{background-color: darken($baseColor,5%);}
                     }
                 }
             }

@@ -432,8 +432,9 @@
 			.parlevel2-li{
 				a{
 					display: block;
-					-webkit-tap-highlight-color: rgba(228,0,127,0.2);
-					img{width: 100%;}
+					z-index: 3000;
+					 -webkit-tap-highlight-color:rgba(0,0,0,0.2);
+					img{display: block;width: 100%;}
 				}
 				.img-horizontal{
 					width: 80%;
