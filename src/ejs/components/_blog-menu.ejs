@@ -1,21 +1,22 @@
-	<div id="smph-pagecover"></div>
-		<header id="header">
-			<div id="smph-header">
-				<div class="smph-header__menu-trigger">
-					<span></span>
-					<span></span>
-					<span></span>
-				</div>
-				<p class="smph-header__txt">MENU</p>
-				<div class="smph-header__logo"><a href="/" class="touchItem"><img src="../assets/img/header-logo-smph.png" alt="logo"></a></div>
+<% var date = new Date(); -%>
+<div id="smph-pagecover"></div>
+	<header id="header">
+		<div id="smph-header">
+			<div class="smph-header__menu-trigger">
+				<span></span>
+				<span></span>
+				<span></span>
 			</div>
-			<nav id="header-menu" class="menu">
-				<div class="header-menu__logo"><img src="../assets/img/menu-logo.svg" alt=""></div>
-				<ul class="header-menu__list">
+			<p class="smph-header__txt">MENU</p>
+			<div class="smph-header__logo"><a href="/"><img src="../assets/img/header-logo-smph.png?timestamp=<%= date.getTime() %>" alt='第66回筑駒文化祭"Dice!"ロゴ(大)'></a></div>
+		</div>
+		<nav id="header-menu" class="menu">
+			<div class="header-menu__logo"><img src="../assets/img/menu-logo.svg?timestamp=<%= date.getTime() %>" alt='第66回筑駒文化祭"Dice!"ロゴ(小)'></div>
+			<ul class="header-menu__list">
 					<%
 						var menuItems=[];
-						var keys = ["index","about","theme","info","access","blog","groups"];
-						var discs = ["トップ","概要",'"Dice!"とは？',"ごあんない","アクセス","ブログ","団体紹介"];
+						var keys = ["index","about","theme","info","access","blog","groups","download"];
+						var discs = ["トップ","概要",'"Dice!"とは？',"ごあんない","アクセス","ブログ","団体紹介","ダウンロード"];
 						for(var i=0;i<keys.length;i++){
 							menuItems[i] = {"key":keys[i],"disc":discs[i]};
 						}

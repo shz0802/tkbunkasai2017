@@ -155,6 +155,7 @@ $(function(){
 
 			// animation
 			setTimeout(function(){
+				loadStyleSheet();
 				setTimeout(function(){
 					autoType(".enter-page__whatHappens",100);
 					setTimeout(function(){
@@ -185,7 +186,6 @@ $(function(){
 									$(".rect").addClass("is-started-2");
 									$(".enter-page__logo,.circle2,.tri,.hex,.rect-m,.tri-m").addClass("is-started");
 									setTimeout(function(){
-										loadStyleSheet();
 										// show letters and button
 										$(".enter-page__logo-wrap,.enter-page__logo-text-item,.enter-page__button").addClass("is-started");
 										$(".enter-page__skip").fadeOut(500);
