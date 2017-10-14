@@ -864,7 +864,7 @@ body.body-top{
             }
             @include mq(lg){
                 width: 60vw;
-                height: 15vw;
+                min-height: 15vw;
                 margin-top: 12.5vw;
 				margin-left: 20vw;
 				box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.4), inset 0px 0px 0px 1vw #fefefe, inset 1vw 1vw 0px 2px $baseColor, inset -1vw -1vw 0px 2px $baseColor;
