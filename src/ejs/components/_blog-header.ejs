@@ -14,15 +14,32 @@
 	</script>
 	<title><% if(pageName!=""){ %><%= pageName %>｜<%}%>第66回筑駒文化祭"Dice!"公式サイト</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<% if(pageName=="そもそも文実って？"){ -%>
+	<meta name="description" content="【連載】『文実の仕事』の初回です。文化祭実行委員会っていったい何なの？という疑問にお答えします。">
+	<meta name="twitter:description" content="【連載】『文実の仕事』の初回です。文化祭実行委員会っていったい何なの？という疑問にお答えします。">
+	<% } else if(pageName=="総務部門の仕事"){ -%>
+	<meta name="description" content="【連載】『文実の仕事』第2回。今回は、各団体の文化祭準備をサポートする縁の下の力持ち、「総務部門」の紹介です。">
+	<meta name="twitter:description" content="【連載】『文実の仕事』第2回。今回は、各団体の文化祭準備をサポートする縁の下の力持ち、「総務部門」の紹介です。">
+	<% } else if(pageName=="広報部門の仕事"){ -%>
+	<meta name="description" content="【連載】『文実の仕事』第3回。今回は、様々な宣伝物・広報物のデザイン・作成をしている広報部門を紹介します。">
+	<meta name="twitter:description" content="【連載】『文実の仕事』第3回。今回は、様々な宣伝物・広報物のデザイン・作成をしている広報部門を紹介します。">
+	<% } -%>
 	<meta property="og:title" content='第66回筑駒文化祭"Dice!"公式サイト'>
+	<% if(pageName=="そもそも文実って？"){ -%>
+	<meta property="og:image" content="http://tsukukoma.bunkasai.info/assets/img/blog-img/20171011-1.jpg?timestamp=<%= date.getTime() %>">
+	<meta property="twitter:image" content="http://tsukukoma.bunkasai.info/assets/img/blog-img/20171011-1.jpg?timestamp=<%= date.getTime() %>">
+	<% } else if(pageName=="広報部門の仕事"){ -%>
+	<meta property="og:image" content="http://tsukukoma.bunkasai.info/assets/img/blog-img/20171015-3.png?timestamp=<%= date.getTime() %>">
+	<meta property="twitter:image" content="http://tsukukoma.bunkasai.info/assets/img/blog-img/20171015-3.png?timestamp=<%= date.getTime() %>">	
+	<% }else{ -%>
 	<meta property="og:image" content="http://tsukukoma.bunkasai.info/assets/img/ogp.png?timestamp=<%= date.getTime() %>">
-	<meta property="og:url" content="http://tsukukoma.bunkasai.info/">
+	<meta name="twitter:image" content="http://tsukukoma.bunkasai.info/assets/img/ogp.png?timestamp=<%= date.getTime() %>">
+	<% } -%>
+	<meta property="og:url" content="http://tsukukoma.bunkasai.info/<%= path %>">
 	<meta property="fb:app_id" content="210053346147406">
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@tsukukomafesta">
-	<meta name="twitter:title" content='第66回筑駒文化祭"Dice!"公式サイト'>
-	<meta name="twitter:description" content="今年の筑駒文化祭は11/3(金) ~ 5(日)に開催されます。皆様のご来場をお待ちしております。">
-	<meta name="twitter:image" content="http://tsukukoma.bunkasai.info/assets/img/ogp.png?timestamp=<%= date.getTime() %>">
+	<meta name="twitter:title" content='<% if(pageName!=""){ %><%= pageName %>｜<%}%>第66回筑駒文化祭"Dice!"公式サイト'>
 	<meta name="format-detection" content="telephone=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<link rel="icon" href="../assets/img/favicon.ico?timestamp=<%= date.getTime() %>" type="image/vnd.microsoft.icon">

@@ -48,8 +48,14 @@ body{background-color: $baseWhite;font-family: $baseFont_jp;}
 	background-color: rgba(0,0,0,0.4);
 	transition:0.5s transform ease-in-out;
     &.is-opened{
-		display: block;
-		animation: isOpened .5s ease-in-out 0s;
+		@include mq{
+			display: block;
+			animation: isOpened .5s ease-in-out 0s;
+		}
+		@include mq(sm){
+			display: block;
+			animation: isOpened .5s ease-in-out 0s;
+		}
 		@include mq(md){display: none;}
 		@include mq(lg){display: none;}
 		z-index: 3000;
@@ -78,9 +84,14 @@ body{background-color: $baseWhite;font-family: $baseFont_jp;}
     box-shadow: 0 0 5px 5px rgba(0,0,0,0.2);
 	transition: 0.5s transform ease-in-out;
     &.is-opened{
-        background-color: darken($baseColor, 10%);
-        transform: translateX(75vw);
-        @include mq(sm){transform: translateX(60vw);}
+		@include mq{
+			background-color: darken($baseColor, 10%);
+			transform: translateX(75vw);
+		}
+        @include mq(sm){
+			transform: translateX(60vw);
+			background-color: darken($baseColor, 10%);
+		}
     }
     .smph-header__menu-trigger{
         position: absolute;
@@ -209,9 +220,8 @@ body{background-color: $baseWhite;font-family: $baseFont_jp;}
         -webkit-overflow-scrolling:touch;
         @include disactivateLinkColors;
 		&.is-opened{
-			@include mq{transform: translateX(75vw)};
-			@include mq(sm){transform: translateX(60vw);}
-			box-shadow: 0 0 10px 10px rgba(0,0,0,0.3);
+			@include mq{transform: translateX(75vw);box-shadow: 0 0 10px 10px rgba(0,0,0,0.3);};
+			@include mq(sm){transform: translateX(60vw);box-shadow: 0 0 10px 10px rgba(0,0,0,0.3);}
 		}
         @include mq(md){
             position: relative;
@@ -558,10 +568,8 @@ body{background-color: $baseWhite;font-family: $baseFont_jp;}
     box-sizing: border-box;
     transform: translateX(0);
     transition: transform .5s ease-in-out;
-    &.is-opened{transform: translateX(75vw);}
-    @include mq(sm){
-        &.is-opened{transform: translateX(60vw);}
-    }
+	@include mq{&.is-opened{transform: translateX(75vw);}}
+    @include mq(sm){&.is-opened{transform: translateX(60vw);}}
     @include mq(md){
         display: block;
         width: 82.5vw;
