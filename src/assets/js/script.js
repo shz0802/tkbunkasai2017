@@ -112,7 +112,7 @@ $(function(){
 
 	 // if IE, stop showing animation
 	var ua = navigator.userAgent;
-	if(ua.match(/MSIE/) || ua.match(/Trident/)){
+	if(ua.match(/MSIE/) || ua.match(/Trident/)||ua.match(/Edge/)){
 		topAnimationSkip();
 	}
 
