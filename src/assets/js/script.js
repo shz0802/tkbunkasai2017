@@ -594,5 +594,4 @@ $(function(){
 			},250);
 		});
 	}
-	console.log($(".img-horizontal,.img-vertical").outerHeight());
 });

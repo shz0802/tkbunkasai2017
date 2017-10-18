@@ -15,11 +15,12 @@
 	margin: 0;
 	padding: 0;
 	width: 90vw;
+	margin-top: 5vw;
 	margin-left: 5vw;
 	box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.1);
 	@include mq(sm){margin-left: 10vw;width: 80vw;}
-	@include mq(md){margin-top: 0vw;margin-left: 0;width: 40vw;}
-	@include mq(lg){margin-top: 0vw;margin-left: 0;width: 35vw;}
+	@include mq(md){margin-top: 1vw;margin-left: 0;width: 40vw;}
+	@include mq(lg){margin-top: 1vw;margin-left: 0;width: 35vw;}
 	.blog-list__item{
 		cursor: pointer;
 		position: relative;
@@ -447,7 +448,39 @@
 		}
 	
 	}
-
+	.blog-prev,.blog-next{
+		width: 90%;
+		font-size: 3.5vw;
+		margin-top: 5vw;
+		margin-left: 5%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		@include mq(sm){
+			font-size: 2vw;
+			margin-top: 5vw;
+		}
+		@include mq(md){
+			font-size: 1.2vw;
+			margin-top: 3vw;
+		}
+		@include mq(lg){
+			font-size: 1vw;
+			margin-top: 2vw;
+		}
+	}
+	.blog-next{
+		margin-top: 2vw;
+		@include mq(sm){
+			margin-top: 2vw;
+		}
+		@include mq(md){
+			margin-top: 1vw;
+		}
+		@include mq(lg){
+			margin-top: .5vw;
+		}
+	}
 	.back-to-top-blog{
 		width: 100%;
 		text-align: center;
