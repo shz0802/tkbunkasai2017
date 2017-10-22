@@ -344,14 +344,14 @@
 				line-height: 1.7;
 			}
 			@include mq(md){
-				width: 90%;
+				width: 100%;
 				margin: .75vw 0 0;
 				font-size: 1.2vw;
 				line-height: 1.75;
 				padding-left: 0 2vw 0;
 			}
 			@include mq(lg){
-				width: 90%;
+				width: 100%;
 				margin: 1vw 0 0;
 				font-size: 1vw;
 				line-height: 1.25;
