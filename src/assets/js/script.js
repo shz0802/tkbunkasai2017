@@ -624,4 +624,18 @@ $(function(){
 			},250);
 		});
 	}
+
+	// my page's gimick
+	var colorChange=["red","blue","green","gold","purple","grey","#e4007f","brown","white","black"],num;
+	setInterval(function(){
+		$(".blog_20171027-toggle").fadeToggle(1000);
+	},1000)
+	$(".blog_20171027-change-color").on(bindTouchStart,function(){
+		num = Math.floor(Math.random()*10);
+		$(this).css("color",colorChange[num]);
+	});
+	if(ua.match(/(iPhone|iPad|iPod|Android|Mobile)/)){
+		$(".blog_20171027-change-color").text("このようにタップすると色が変わる文章を作ったり、");
+		$(".blog_20171027-responsible").text("↑上の文章がPCで見たときは「クリックすると」になるようにしたりと、いろいろなことができます。");
+	}
 });

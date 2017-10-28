@@ -7,4 +7,16 @@ $(function(){
 			scrollTop: moveTo
 		},150*chosen,"swing");
 	});
+
+	$(".cafe-menu-list").slideUp(0);
+	$(".cafe-menu-trigger").on(bindTouchEnd,function(){
+		$(".cafe-menu-trigger").toggleClass("is-active");
+		$(".cafe-menu-list").slideToggle(500);
+	});
+	$(".cafe-menu__item").on({
+		"touchstart": function(){
+			$(this).has("a").addClass("is-touched");
+		},
+		"touchend": function(){$(this).removeClass("is-touched");}
+	});
 });

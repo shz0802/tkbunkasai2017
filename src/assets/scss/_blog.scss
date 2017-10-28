@@ -461,11 +461,11 @@
 			}
 			@include mq(md){
 				font-size: 1.2vw;
-				line-height: 1.3;
+				line-height: 1.75;
 			}
 			@include mq(lg){
 				font-size: 1.1vw;
-				line-height: 1.3;
+				line-height: 1.75;
 			}
 		}
 	
@@ -522,4 +522,13 @@
 			margin-top: 2vw;
 		}
 	}
+
+	// my article's gimicks
+	pre{margin: 0}
+	code{font-family: $baseFont_jp;}
+	.blog_20171027-color{color: $baseColor;}
+	.blog_20171027-right{display: block;width: 100%;text-align: right;}
+	.blog_20171027-back{display: block;width: 100%;background-color:$baseColor;color: $baseWhite;text-align: center;}
+	.blog_20171027-larger{font-size: 5vw;}
+	.blog_20171027-border{border: solid 1px #000;}
 }

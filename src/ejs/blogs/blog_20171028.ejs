@@ -1,0 +1,99 @@
+<% var pageName = "文化祭サイトのおはなし" %>
+<%- include("../components/_blog-header.ejs",{pageName:pageName,path:"blogs/20171028"}) %>
+<%- include("../components/_blog-menu.ejs",{pageId:"blog"}) %>
+<main id="main" class="main-blog-content">
+	<div class="blog-tag-name">【文化祭のこだわり】第4回</div>
+	<h1 class="blog-parlevel1-headline"><span><%= pageName %></span></h1>
+	<div class="blog-parlevel1-content">
+		<p class="blog-parlevel1-text">　みなさんこんばんは。</p>
+		<p class="blog-parlevel1-text">　これまで数回にかけて「文化祭のこだわり」を紹介してきましたが、今回のテーマは「サイト」、そう、今あなたの目の前にあるこのwebサイトです。<br></p>
+		<h2 class="blog-parlevel2-headline">「サイトってどうやって作るの？」</h2>
+		<div class="blog-parlevel2-content">
+			<p class="blog-parlevel2-text">　……この質問をされてパッと答えられる方は案外少ないのではないでしょうか？<br></p>
+			<p class="blog-parlevel2-text">　WordやPowerPointのように文字を打ち込んだり図形を配置したりする…？</p>
+			<p class="blog-parlevel2-text">　あるいはデザイナーが専用のソフトで描いている…？<br></p>
+			<p class="blog-parlevel2-text">　どれも違います。</p>
+			<p class="blog-parlevel2-text">　実はサイトは、「描く」のではなく、「書いて」作るんです。</p>
+		</div>
+		<h2 class="blog-parlevel2-headline">「描く」ではなく「書く」</h2>
+		<div class="blog-parlevel2-content">
+			<p class="blog-parlevel2-text">　ここで、例えばあなたが「Dice!」のロゴ画像をwebサイトの中央に置こうとしているとしましょう。</p>
+			<p class="blog-parlevel2-text">　普通であれば、デザイナーに「この画像を真ん中に置いて」と指示すれば、言った通りに描いてくれますね。</p>
+			<p class="blog-parlevel2-text">　しかし、webサイト作成の際に相手にするのは「コンピューター」です。彼らは「0」と「1」だけで物事を判断していますから、ただの日本語の指示では理解してくれません。<br></p>
+			<p class="blog-parlevel2-text">　つまり、コンピューターが分かるように指示を「書く」必要があるのです。<br><br></p>
+			<p class="blog-parlevel2-text">　この際に使うのが「html」という言語です。</p>
+			<p class="blog-parlevel2-text">　htmlは「hypertext markup language」の略、と聞くとなんだか堅苦しそうですが、要は普通の文章をコンピューターの分かる形にする、ということです。</p>
+			<p class="blog-parlevel2-text">　具体的には、「タグ」というものを用いて、「その文章は全体の構造の中でどのような役割を担っているか」を示します (例えば、「見出し」「本文」「リスト」などなど…)。「タグ」で文章を囲うことによって、文書の構造がコンピューターにも理解できるようになります。<br><br></p>
+			<p class="blog-parlevel2-text">　とまあ、抽象的な説明をしても分かりにくいですね。例えば……</p>
+			<p class="blog-parlevel2-text">
+			<pre>
+			<code>
+&lt;div&gt;
+	&lt;p&gt;今あなたが読んでいるこのブログの文章は、htmlではこんな感じになっています。&lt;/p&gt;
+	&lt;p&gt;そう、htmlを使えば、&lt;/p&gt;
+	&lt;h3&gt;こんな風に見出しをつけたり&lt;/h3&gt;
+	&lt;ul&gt;
+		&lt;li&gt;リストをつくったり&lt;/li&gt;
+		&lt;li&gt;表をつくったり&lt;/li&gt;
+		&lt;li&gt;いろんなことが&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;p&gt;できちゃうわけです。&lt;/p&gt;
+&lt;/div&gt;				
+			</code>
+			</pre>
+			</p>
+		</div>
+		<h2 class="blog-parlevel2-headline">「書く」ことで「描く」</h2>
+		<div class="blog-parlevel2-content">
+			<p class="blog-parlevel2-text">　しかし、これだけではなんのデザインもない、のっぺりしたサイトにしかなりません。</p>
+			<p class="blog-parlevel2-text">　魅力的なサイトを作るには、様々なデザインを加えることが必要です。<br></p>
+			<p class="blog-parlevel2-text">　そこで使うのが「CSS」と呼ばれる言語です。これを用いることで、htmlで書かれた文書に装飾を施すことができます。<br><br></p>
+			<p class="blog-parlevel2-text">　<span class="blog_20171027-color">たとえばこんな感じで字に色を付けたり、</span></p>
+			<p class="blog-parlevel2-text">　<span class="blog_20171027-larger">字のサイズを大きくしたり、</span></p>
+			<p class="blog-parlevel2-text">　<span class="blog_20171027-back">背景に色をつけたり、</span></p>
+			<p class="blog-parlevel2-text">　<span class="blog_20171027-right">右側に寄せたり、</span></p>
+			<p class="blog-parlevel2-text">　<span class="blog_20171027-border">枠をつけたりできます。</span><br><br><br></p>
+			<p class="blog-parlevel2-text">　さらに、「JavaScript」という言語を用いれば、サイトを動的に変化させられます。</p>
+			<p class="blog-parlevel2-text">　<span class="blog_20171027-toggle">こんな感じで消えては現れる文章や</span></p>
+			<p class="blog-parlevel2-text">　<span class="blog_20171027-change-color">このようにクリックすると色が変わる文章を作ったり、</span></p>
+			<p class="blog-parlevel2-text">　<span class="blog_20171027-responsible">↑上の文章がスマホ・タブレットで見たときは「タップすると」になるようにしたりと、いろいろなことができます。</span></p>
+			<p class="blog-parlevel2-text">　このように、これら3つの言語を「書く」ことで、サイトを「描く」ことができるのです。</p>
+			<div class="blog-img"><img src="../assets/img/blog-img/20171028-1.jpg" alt="20171028 画像"></div>
+		</div>
+		<h2 class="blog-parlevel2-headline">文化祭サイトの「こだわり」</h2>
+		<div class="blog-parlevel2-content">
+			<p class="blog-parlevel2-text">　さて、技術的なおはなしはこれくらいにして、今年度の文化祭サイトに込められた「こだわり」を紹介していきます。</p>
+			<h3 class="blog-parlevel3-headline">アニメーション</h3>
+			<div class="blog-parlevel3-content">
+				<p class="blog-parlevel3-text">　このサイトを訪れて最初に目を引くのは、やはりトップページのアニメーションでしょう。突然出てきてびっくりした方も多いかと思います。</p>
+				<p class="blog-parlevel3-text">　(ちなみにInternet Explorerをお使いの方はご覧になれません…。悪しからず。)</p>
+				<p class="blog-parlevel3-text">　このアニメーションを作ったきっかけは、テーマデザインのロゴを見て「あ、回りそう(笑)」と突発的に思ったことです。</p>
+				<p class="blog-parlevel3-text">　この思いつきをもとに、「最初に円ができる」「四角形が順番に出てくる」…と、CSSとJavaScriptを荒ぶるように使いながらコードを書いていきました。</p>
+				<p class="blog-parlevel3-text">　さらにキャッチコピーの「what happens?」をタイピング風に出すことで、「ん？これから何が起きるんだろう？？」というワクワク感を伝えることを狙っています。</p>
+			</div>
+			<h3 class="blog-parlevel3-headline">トップページ</h3>
+			<div class="blog-parlevel3-content">
+				<p class="blog-parlevel3-text">　トップページで最もこだわったのは、「背景」です。</p>
+				<p class="blog-parlevel3-text">　このデザインは、ポスターのデザインが決定した後に思いつきました。広報部門長曰く「『予測できない文化祭』を表現したい」とのことだったので(詳しくは彼が<a href="./blog_20171026-2">この記事</a>に書いています)、一つ一つの正方形を完全にランダムに配置し、かつ時間がたつにつれ段々と変化するようにしました。</p>
+				<p class="blog-parlevel3-text">　こうすることで、ランダムで、まさに「予測できない」サイトが完成するわけです。<br></p>
+				<p class="blog-parlevel3-text">　※ちなみに、トップページにある「あと〇日」のカウントダウンは手動です。「自動化しないのかよ！」と思うかもしれませんが、これには「段々と減っていく残り時間を自分に敢えて知らしめることで危機感を高める」という重要な目的があります…。</p>
+			</div>
+			<h3 class="blog-parlevel3-headline">ブログ</h3>
+			<div class="blog-parlevel3-content">
+				<p class="blog-parlevel3-text">　そう、まさに今あなたが読んでいるこの「ブログ」です。</p>
+				<p class="blog-parlevel3-text">　「文化祭の公式サイトでブログを書く」という試みは、実は今年度が初めてでした。「文実の生の声を伝える」をコンセプトに、部門紹介・「こだわり」の紹介と様々な記事をアップしています。</p>
+				<p class="blog-parlevel3-text">　まだまだ暗中模索の状態ですが、「来る前から楽しめる」コンテンツを目指して精進してまいります。</p>
+			</div>
+		</div>
+		<h2 class="blog-parlevel2-headline">おわりに</h2>
+		<div class="blog-parlevel2-content">
+			<p class="blog-parlevel2-text">　色々と書いてきましたが、お楽しみいただけたでしょうか？</p>
+			<p class="blog-parlevel2-text">　文化祭サイトには、まだまだ公開していない温存中のコンテンツがたくさんあります。随時更新していきますので、ぜひ定期的にチェックしてみて下さい。<br><br></p>
+			<p class="blog-parlevel2-text">　おっと、そろそろ新しいブログを更新しないといけない時間です。</p>
+			<p class="blog-parlevel2-text">　では、次の記事でまたお会いしましょう。</p>
+		</div>
+		<div class="blog-prev">前の記事：<a href="../../blogs/blog_20171027-2">「校内サインのおはなし」【連載】『文化祭のこだわり』第3回</a></div>
+		<div class="back-to-top-blog"><a href="../blog">ブログのトップページへ戻る</a></div>
+	</div>
+</main>
+<%- include("../components/_blog-footer.ejs") %>
