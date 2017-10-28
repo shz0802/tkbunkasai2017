@@ -16,8 +16,7 @@ a{
 	&:visited{color: purple;text-decoration: none;}
 	&.is-hovered{text-decoration: underline;}
 	&:hover{
-		@include mq(md){text-decoration: underline;}
-		@include mq(lg){text-decoration: underline;}
+		text-decoration: underline;
 	}
 	&:active{color: darkblue;}
 }

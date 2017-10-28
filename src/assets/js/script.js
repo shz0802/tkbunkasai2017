@@ -334,8 +334,8 @@ $(function(){
 	});
 
 	// $(".deco-list ul").slideDown(0); //development
-	var decoNum_min = 0,
-		decoNum_max = 34,
+	var decoNum_min = 1,
+		decoNum_max = 45,
 		onModalScrollTop,
 		decoModalFlg = false;
 	function toggleDecoModal(scroll){
@@ -351,7 +351,7 @@ $(function(){
 			$(".deco-desc-modal-wrap").stop().delay(500).fadeOut(250,function(){
 				$(".deco-desc-modal__item").empty();
 			});
-			$(window).scrollTop(onModalScrollTop);
+			$(window).scrollTop(scroll);
 			$("#main").css({
 				"top": 0,
 				"position": "relative"
@@ -359,7 +359,7 @@ $(function(){
 			decoModalFlg = false;
 		}else{
 			$(".deco-desc-modal-wrap").stop().fadeIn(500);
-			$(".deco-desc-modal").stop().delay(250).slideDown(500,"easeOutBack",function(){
+			$(".deco-desc-modal").stop().animate({scrollTop: 0},100).delay(250).slideDown(500,"easeOutBack",function(){
 				$(".deco-desc-modal__down-arrow span").css("opacity",0);
 				$("#main").css({
 					"top": -scroll,
@@ -402,17 +402,18 @@ $(function(){
 		$(".deco-desc-modal-prev .deco-desc-modal__item").append(prevDeco.children().clone());
 		$(".deco-desc-modal-next .deco-desc-modal__item").append(nextDeco.children().clone());
 	}
-	if(ua.match(/(iPhone|iPad|iPod|Android|Mobile)/)){
+	
+	if($(window).width()<959){
 		$(".deco-list ul").slideUp(0);
 		$(".groups-headline-trigger").on(bindTouchEnd,function(){
 			var list = $("[data-deco-list-num="+ $(this).data("decoListTriggerNum") +"]"),
 				listItem = $(".deco-list__item",list);
-			if(list.data("smph-list") == "smph-list-open"){
+			if(list.hasClass("smph-list-open")){
 				$(this).removeClass("is-on");
-				list.removeAttr("data-smph-list").stop().slideUp(500,"easeOutQuad");
+				list.removeClass("smph-list-open").stop().slideUp(500,"easeOutQuad");
 			}else{
 				$(this).addClass("is-on");
-				list.data("smph-list","smph-list-open").stop().slideDown(500,"easeInQuad");
+				list.addClass("smph-list-open").stop().slideDown(500,"easeInQuad");
 			}
 		});
 		$(".deco-list__item").on(bindTouchStart,function(){
@@ -470,15 +471,22 @@ $(function(){
 				if(preventYmove === false && startOntop && Ydiff > 0){
 					preventXmove = true;
 					e.preventDefault();
-					$(".deco-desc-modal-wrap").removeClass("is-on");
-					$(this).css("overflow","hidden");
-					$(this).animate({
-						translateY: Ydiff
-					},10,"linear");
-					$(".deco-desc-modal__down-arrow span").animate({
-						opacity: 0.004 * Ydiff,
-						borderRadius: $(window).width() * 0.0003 * Ydiff
-					},10,"linear");
+					if(Ydiff > 25){
+						$(".deco-desc-modal-wrap").removeClass("is-on");
+						$(this).css("overflow","hidden");
+						$(this).animate({
+							translateY: Ydiff - 25
+						},10,"linear");
+						$(".deco-desc-modal__down-arrow span").animate({
+							opacity: 0.004 * Ydiff,
+							borderRadius: $(window).width() * 0.0003 * Ydiff
+						},10,"linear");
+					}else{
+						$(this).css("overflow","scroll");
+						$(this).animate({
+							translateY: 0
+						},100,animateEasing);	
+					}
 				}else{preventXmove = false;}
 			},
 			"touchend": function(){
@@ -486,22 +494,22 @@ $(function(){
 				if(Xdiff > windowWidth*0.3){
 					$(this).stop(false,false).animate({
 						translateX: windowWidth
-					},500,animateEasing);
+					},250,animateEasing);
 					$(".deco-desc-modal-next").hide().animate({
 						scrollTop: 0,
 						translateX: -windowWidth
 					},0);
 					$(".deco-desc-modal-prev").stop(false,false).animate({
 						translateX: 0
-					},500,animateEasing);
+					},250,animateEasing);
 					setModalContents($(".deco-desc-modal-prev").data("modal-num"),"prev");
 				}else if(Xdiff < -windowWidth*0.3){
 					$(this).stop(false,false).animate({
 						translateX: -windowWidth
-					},500,animateEasing);
+					},250,animateEasing);
 					$(".deco-desc-modal-next").stop(false,false).animate({
 						translateX: 0
-					},500,animateEasing);
+					},250,animateEasing);
 					$(".deco-desc-modal-prev").hide().animate({
 						scrollTop: 0,
 						translateX: windowWidth
@@ -539,41 +547,63 @@ $(function(){
 					$(this).css("overflow","scroll");
 					$(this).animate({
 						translateY: 0
-					},200);
+					},100,animateEasing);
 				}
 			}
 		},".deco-desc-modal");
 
-		$(".deco-desc-modal__close").on("touchend",function(){
-			toggleDecoModal(onModalScrollTop);
+		$(".deco-desc-modal__close").on({
+			"touchstart": function(){
+				$(this).css("text-decoration","underline");
+			},
+			"touchend": function(){
+				toggleDecoModal(onModalScrollTop);
+				$(this).css("text-decoration","none");
+			}
 		});
 	}else{
 		$(".downloadParlevel1Text-replacable").text("画像をクリックするとダウンロードできます。");
 		$(".content-tab").fadeOut(0);
+		$(".content-tab-trigger").last().addClass("tab-last");
+		
 		tabNum = $(".content-tab-trigger").length;
 		tabTriggerWidth = $(".content-tab-trigger").parent().innerWidth()/tabNum;
 		$(".content-tab-trigger").css("width",tabTriggerWidth);
-		for(var i=1;i<=tabNum;i++){
-			$("[data-tab-trigger-num="+i+"]").css("left",tabTriggerWidth*(i-1));
+		for(var i=0;i<tabNum;i++){
+			$("[data-tab-trigger-num="+i+"]").css("left",tabTriggerWidth*(i));
 		}
 		$(window).resize(function(){
 			tabTriggerWidth = $(".content-tab-trigger").parent().innerWidth()/tabNum;
-			for(var i=1;i<=tabNum;i++){
-				$(".content-tab-trigger").css("width",tabTriggerWidth);
-				$("[data-tab-trigger-num="+i+"]").css("left",tabTriggerWidth*(i-1));
+			$(".content-tab-trigger").css("width",tabTriggerWidth);
+			for(var i=0;i<tabNum;i++){
+				$("[data-tab-trigger-num="+i+"]").css("left",tabTriggerWidth*(i));
 			}
 		});
-		$(".content-tab-trigger").last().addClass("tab-last");
+
 		$(".content-tab-trigger").on("click",function(){
-			var targetTab = $("[data-tab-num="+$(this).data("tab-trigger-num")+"]");
-			$("")
-			$(".content-tab-open").fadeOut(250).queue(function(){$(this).removeClass("content-tab-open").dequeue();});
-			targetTab.fadeIn(250).queue(function(){$(this).addClass("content-tab-open").dequeue();});
-			console.log(targetTab)
+			if(!($(this).hasClass("is-open"))){
+				$(".is-open").removeClass("is-open");
+				$(this).addClass("is-open");
+				$(".deco-list__item").removeClass("is-chosen");
+				var targetTab = $("[data-tab-num="+$(this).data("tab-trigger-num")+"]");
+				$(".content-tab-open").fadeOut(250).queue(function(){$(this).removeClass("content-tab-open").dequeue();});
+				targetTab.fadeIn(250).queue(function(){$(this).addClass("content-tab-open").dequeue();});
+			}
 		});
+
 		$(".deco-list__item").on("click",function(){
-			var showWindow = $(".deco-list-desc-show");
-			showWindow.empty().append($(this).children().clone());
+			if($(this).hasClass("is-chosen")){
+				$(this).removeClass("is-chosen");
+				$(".deco-list-desc-show").data("deco-shown","").empty();
+			}else{
+				var parent = $(this).parent();
+				$(".content-tab-open .is-chosen").removeClass("is-chosen");
+				$(this).addClass("is-chosen");
+				$(".deco-list-desc-show").hide();
+				$(this).parent().parent().find(".deco-list-desc-show").attr("data-deco-shown",$(this).data("deco-num")).empty().show().css({
+					zIndex: 9000
+				}).append($(this).children().clone());
+			}
 		});
 	}
 	if(window.ontouchstart===null){

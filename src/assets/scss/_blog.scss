@@ -213,6 +213,28 @@
 			line-height: 1;
 			font-size: 2.73vw;
 		}
+		.blog-subtitle{
+			display: block;
+			position: relative;
+			margin: 5vw auto 0;
+			line-height: 1.2;
+			font-size: 4vw;
+			@include mq(sm){
+				margin: 4vw auto 0;
+				line-height: 1;
+				font-size: 4vw;
+			}
+			@include mq(md){
+				margin: 2vw auto 0;
+				line-height: 1;
+				font-size: 1.75vw;
+			}
+			@include mq(lg){
+				margin: 2vw auto 0vw;
+				line-height: 1;
+				font-size: 1.75vw;
+			}
+		}
 	}
 	.blog-parlevel1-content{
 		position: relative;
@@ -253,12 +275,12 @@
 			@include mq(md){
 				margin-bottom: .25vw;
 				font-size: 1.2vw;
-				line-height: 1.5;
+				line-height: 1.75;
 			}
 			@include mq(lg){
 				margin-bottom: .25vw;
 				font-size: 1.1vw;
-				line-height: 1.5;
+				line-height: 1.75;
 			}
 		}
 	}

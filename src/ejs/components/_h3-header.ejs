@@ -1,0 +1,39 @@
+<% var date = new Date(); -%>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<!-- ©筑波大学付属駒場中・高等学校文化祭実行委員会 2017 -->
+	<!-- Global Site Tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107602810-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-107602810-1');
+	</script>
+	<title><% if(pageName!=""){ %><%= pageName %>｜<%}%>第66回筑駒文化祭"Dice!"公式サイト</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta property="og:title" content='<% if(pageName!=""){ %><%= pageName %>｜<%}%>第66回筑駒文化祭"Dice!"公式サイト'>
+	<% if(pageName=="高3ステージ班"){ -%>
+	<meta property="og:image" content="http://tsukukoma.bunkasai.info/assets/img/h3/stage/daikazoku_ogp.png?timestamp=<%= date.getTime() %>">
+	<meta property="twitter:image" content="http://tsukukoma.bunkasai.info/assets/img/h3/stage/daikazoku_ogp.png?timestamp=<%= date.getTime() %>">
+	<% }else{ -%>
+	<meta property="og:image" content="http://tsukukoma.bunkasai.info/assets/img/ogp.png?timestamp=<%= date.getTime() %>">
+	<meta name="twitter:image" content="http://tsukukoma.bunkasai.info/assets/img/ogp.png?timestamp=<%= date.getTime() %>">
+	<% } -%>
+	<meta property="og:url" content="http://tsukukoma.bunkasai.info/<%= path %>">
+	<meta property="fb:app_id" content="210053346147406">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@tsukukomafesta">
+	<meta name="twitter:title" content='<% if(pageName!=""){ %><%= pageName %>｜<%}%>第66回筑駒文化祭"Dice!"公式サイト'>
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="icon" href="../assets/img/favicon.ico?timestamp=<%= date.getTime() %>" type="image/vnd.microsoft.icon">
+	<link rel="shortcut icon" href="../assets/img/favicon.ico?timestamp=<%= date.getTime() %>" type="image/vnd.microsoft.icon">
+	<link rel="apple-touch-icon" sizes="152x152" href="../assets/img/apple-touch-icon.png?timestamp=<%= date.getTime() %>">
+	<link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../assets/css/h3.css?timestamp=<%= date.getTime() %>">
+</head>
+<body>
+    <div id="container" class="top-container" ontouchstart="">
