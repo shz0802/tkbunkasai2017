@@ -151,7 +151,8 @@
 					line-height: 2;					
 					display: none;
 					&[data-deco-num = '15']{font-size: 3vw;}
-					&[data-deco-num = '31']{font-size: 3vw;}
+					&[data-deco-num = '34']{font-size: 3vw;}
+					&[data-deco-num = '38']{font-size: 3vw;}
 				}
 			}
 			.serach-word-too-short,.not-found{
@@ -200,8 +201,9 @@
 				&.is-hovered{
 					background-color: rgba(0,0,0,0.4);
 				}
-				&[data-deco-num ~= '31']{font-size: 3vw;line-height: 4;}
+				&[data-deco-num ~= '34']{font-size: 3vw;line-height: 4;}
 				&[data-deco-num ~= '15']{font-size: 2.7vw;line-height: 4.44;}
+				&[data-deco-num ~= '38']{font-size: 3vw;line-height: 4;}
 				border-bottom: .1px dashed rgba(0,0,0,0.6);
 				.deco-icon{
 					position: absolute;
@@ -254,7 +256,7 @@
 				&.is-hovered{
 					background-color: rgba(0,0,0,0.4);
 				}
-				&[data-deco-num ~= '31']{font-size: 3vw;line-height: 4;}
+				&[data-deco-num ~= '34']{font-size: 3vw;line-height: 4;}
 				&[data-deco-num ~= '15']{font-size: 2.7vw;line-height: 4.44;}
 				border-bottom: .1px dashed rgba(0,0,0,0.6);
 				.deco-icon{
@@ -308,7 +310,7 @@
 					&:hover{background-color: rgba(0,0,0,0.3) !important;}
 					&.is-chosen{background-color: rgba(0,0,0,0.3) !important;cursor:default;}
 					&[data-deco-num ~= '15']{font-size: 1vw;line-height: 2.5;}
-					&[data-deco-num ~= '26']{border-bottom: none !important;}
+					&[data-deco-num ~= '31']{border-bottom: none !important;}
 					border-bottom: .1px dashed rgba(0,0,0,0.6);
 					&:nth-of-type(2n+1){background-color: rgba(0,0,0,0.05);}
 					.deco-icon{

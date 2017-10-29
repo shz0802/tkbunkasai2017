@@ -7,5 +7,9 @@
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js?timestamp=<%= date.getTime() %>"></script>
 	<script src="assets/js/min/script.min.js?timestamp=<%= date.getTime() %>"></script>
 	<% } -%>
+	<% if(typeof pageName === undefined){var pageName = "";} %><% if(pageName=="団体紹介"){ -%>
+	<script src="assets/js/min/echo.min.js"></script>
+	<script>echo.init();</script>
+	<% } -%>
 </body>
 </html>

@@ -398,9 +398,9 @@ $(function(){
 		$(".deco-desc-modal-current").attr("data-modal-num",decoNum);
 		$(".deco-desc-modal-prev").attr("data-modal-num",firstItem?decoNum_max:decoNum-1);
 		$(".deco-desc-modal-next").attr("data-modal-num",lastItem?decoNum_min:decoNum+1);
-		$(".deco-desc-modal-current .deco-desc-modal__item").append(currentDeco.children().clone());
-		$(".deco-desc-modal-prev .deco-desc-modal__item").append(prevDeco.children().clone());
-		$(".deco-desc-modal-next .deco-desc-modal__item").append(nextDeco.children().clone());
+		$(".deco-desc-modal-current .deco-desc-modal__item").append(currentDeco.children().clone()).prepend('<img class="deco-img" src="assets/img/deco-img/deco-img_'+ decoNum +'.svg">');
+		$(".deco-desc-modal-prev .deco-desc-modal__item").append(prevDeco.children().clone()).prepend('<img class="deco-img" src="assets/img/deco-img/deco-img_'+ (firstItem?decoNum_max:decoNum-1) +'.svg">');
+		$(".deco-desc-modal-next .deco-desc-modal__item").append(nextDeco.children().clone()).prepend('<img class="deco-img" src="assets/img/deco-img/deco-img_'+ (lastItem?decoNum_min:decoNum+1) +'.svg">');
 	}
 	
 	if($(window).width()<959){
@@ -602,7 +602,7 @@ $(function(){
 				$(".deco-list-desc-show").hide();
 				$(this).parent().parent().find(".deco-list-desc-show").attr("data-deco-shown",$(this).data("deco-num")).empty().show().css({
 					zIndex: 9000
-				}).append($(this).children().clone());
+				}).append($(this).children().clone()).prepend('<img class="deco-img" src="assets/img/deco-img/deco-img_'+ $(this).data("deco-num") +'.svg">');
 			}
 		});
 	}

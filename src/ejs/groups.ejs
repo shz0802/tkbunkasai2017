@@ -70,10 +70,7 @@
 					<ul class="content-tab" data-tab-num="3" data-deco-list-num="3">
 			<%}%>
 			<li class="deco-list__item" data-deco-num="<%= deco.id %>">
-				<% if(deco.id != (25||26||27)){ -%>
-				<img class="deco-img" src="assets/img/deco-img/deco-img_<%= deco.id %>.svg">
-				<% } %>
-				<img class="deco-icon" src="assets/img/deco-icons/deco-icon_<%= deco.id %>.svg">
+				<img class="deco-icon" src="assets/img/loading.svg" data-echo="assets/img/deco-icons/deco-icon_<%= deco.id %>.png">
 				<div class="deco-name"><%- deco.decoName %></div>
 				<div class="deco-title"><%- deco.decoTitle %></div>
 				<div class="deco-desc"><%- deco.decoDesc %></div>
@@ -103,4 +100,4 @@
 		<div class="deco-desc-modal__close">閉じる</div>
 	</div>
 </div>
-<%- include("components/_footer.ejs") %>
+<%- include("components/_footer.ejs",{pageName:pageName}) %>
