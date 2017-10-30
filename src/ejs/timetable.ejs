@@ -1,0 +1,23 @@
+<% var pageName = "タイムテーブル", path="timetable" -%>
+<%- include("components/_header.ejs",{pageName:pageName,path:path}) -%>
+<%- include("components/_menu.ejs",{pageId:"timetable"}) -%>
+		<main id="main" class="main-links">
+			<h1 class="parlevel1-headline"><span><%= pageName %></span></h1>
+			<div class="parlevel1-content">
+				<h2 class="parlevel2-headline-single">PDF</h2>
+				<div class="parlevel2-content">
+					<ul class="parlevel2-ul">
+						<li class="parlevel2-li" data-file-type="png">
+							<p class="parlevel2-ul-text">1日目：<a href="../assets/img/timetable/tkfes17_timetable_day1.pdf">ダウンロード</a></p>
+						</li>
+						<li class="parlevel2-li" data-file-type="png">
+							<p class="parlevel2-ul-text">2日目：<a href="../assets/img/timetable/tkfes17_timetable_day2.pdf">ダウンロード</a></p>
+						</li>
+						<li class="parlevel2-li" data-file-type="png">
+							<p class="parlevel2-ul-text">3日目：<a href="../assets/img/timetable/tkfes17_timetable_day3.pdf">ダウンロード</a></p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</main>
+<%- include("components/_footer.ejs") -%>
