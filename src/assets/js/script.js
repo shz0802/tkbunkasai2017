@@ -68,23 +68,23 @@ function isScrolling(){
 	});
 }
 function topBgAnimation(){
-	setInterval(function(){
-		var changes = [];
-		for(var i=1;i<=1000;i++){
-			if(Math.random()<0.3){changes.push(i);}
-		}
-		changes.forEach(function(num){
-			if(scrolling===false){
-				var obj = $(".index-bg-element-"+num), duration= 1500, delay = Math.random()*1000;
-				obj.delay(delay).queue(function(){
-					$(this).addClass("is-hidden").dequeue();
-				}).delay(duration).queue(function(){
-					$("img",this).attr("src","assets/img/bg-"+ (1+Math.floor(Math.random()*(40))) +".svg");
-					$(this).removeClass("is-hidden").dequeue();	
-				});
-			}
-		});
-	},3000);
+	// setInterval(function(){
+	// 	var changes = [];
+	// 	for(var i=1;i<=1000;i++){
+	// 		if(Math.random()<0.3){changes.push(i);}
+	// 	}
+	// 	changes.forEach(function(num){
+	// 		if(scrolling===false){
+	// 			var obj = $(".index-bg-element-"+num), duration= 1500, delay = Math.random()*1000;
+	// 			obj.delay(delay).queue(function(){
+	// 				$(this).addClass("is-hidden").dequeue();
+	// 			}).delay(duration).queue(function(){
+	// 				$("img",this).attr("src","assets/img/bg-"+ (1+Math.floor(Math.random()*(40))) +".svg");
+	// 				$(this).removeClass("is-hidden").dequeue();	
+	// 			});
+	// 		}
+	// 	});
+	// },3000);
 }
 
 var bindTouchStart = window.ontouchstart===null?"touchstart":"click",
